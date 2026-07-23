@@ -62,15 +62,19 @@
         }
 
         body {
-            background: #f0f7ff;
-            color: #1a1a2e;
+            background: #fdf6f0;
+            /* بيج وردي فاتح */
+            ;
+            color: #3d2c2a;
+            /* بني محمر غامق */
+            ;
         }
 
         /* ===== شاشات الدخول ===== */
         #loginScreen {
             position: fixed;
             inset: 0;
-            background: rgba(0, 0, 0, 0.92);
+            background: rgba(61, 44, 42, 0.95);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -85,14 +89,14 @@
         }
 
         .login-box {
-            background: #1a1a2e;
+            background: #fdf6f0;
             padding: 50px 40px;
             border-radius: 30px;
             width: 100%;
             max-width: 480px;
-            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.9);
+            box-shadow: 0 30px 80px rgba(61, 44, 42, 0.9);
             text-align: center;
-            border: 1px solid #74c0fe;
+            border: 1px solid #dbb8a5;
             animation: fadeInUp 0.6s ease;
         }
 
@@ -116,18 +120,18 @@
             border-radius: 50%;
             background: #fff;
             padding: 10px;
-            border: 3px solid #74c0fe;
+            border: 3px solid #0a0a0a;
         }
 
         .login-box h2 {
             font-size: 32px;
             margin-bottom: 8px;
-            color: #fff;
+            color: #3d2c2a;
             font-weight: 800;
         }
 
         .login-box .subtitle {
-            color: #c0d7ea;
+            color: #0b0b0b;
             margin-bottom: 25px;
             font-size: 15px;
         }
@@ -137,9 +141,9 @@
             padding: 16px 22px;
             margin-bottom: 16px;
             border-radius: 30px;
-            border: 2px solid #2a2a4a;
-            background: #141428;
-            color: #fff;
+            border: 2px solid #ecd9cf;
+            background: #ffffff;
+            color: #3d2c2a;
             font-size: 16px;
             outline: none;
             transition: 0.3s;
@@ -147,19 +151,19 @@
         }
 
         .login-box input:focus {
-            border-color: #74c0fe;
-            background: #1a1a3a;
+            border-color: #d67a7a;
+            background: #fdf6f0;
         }
 
         .login-box input::placeholder {
-            color: #555;
+            color: #b59588;
         }
 
         .login-btn {
             width: 100%;
             padding: 16px;
-            background: #74c0fe;
-            color: #1a1a2e;
+            background: #d67a7a;
+            color: #ffffff;
             border: none;
             border-radius: 30px;
             font-weight: bold;
@@ -170,7 +174,7 @@
         }
 
         .login-btn:hover {
-            background: #c0d7ea;
+            background: #c25f5f;
             transform: scale(1.02);
         }
 
@@ -181,14 +185,14 @@
         }
 
         .login-error {
-            color: #ff6b6b;
+            color: #c0392b;
             font-size: 14px;
             margin-top: 12px;
             display: none;
-            background: rgba(255, 0, 0, 0.1);
+            background: rgba(192, 57, 43, 0.1);
             padding: 10px;
             border-radius: 10px;
-            border: 1px solid rgba(255, 0, 0, 0.2);
+            border: 1px solid rgba(192, 57, 43, 0.2);
         }
 
         .login-error.show {
@@ -196,14 +200,14 @@
         }
 
         .login-success {
-            color: #51cf66;
+            color: #27ae60;
             font-size: 14px;
             margin-top: 12px;
             display: none;
-            background: rgba(81, 207, 102, 0.1);
+            background: rgba(39, 174, 96, 0.1);
             padding: 10px;
             border-radius: 10px;
-            border: 1px solid rgba(81, 207, 102, 0.2);
+            border: 1px solid rgba(39, 174, 96, 0.2);
         }
 
         .login-success.show {
@@ -211,7 +215,7 @@
         }
 
         .forgot-password-link {
-            color: #c0d7ea;
+            color: #7a5a52;
             font-size: 13px;
             margin-top: 12px;
             display: block;
@@ -219,38 +223,38 @@
         }
 
         .forgot-password-link a {
-            color: #74c0fe;
+            color: #d67a7a;
             text-decoration: none;
             transition: 0.3s;
         }
 
         .forgot-password-link a:hover {
-            color: #ffffff;
+            color: #3d2c2a;
             text-decoration: underline;
         }
 
         .register-link {
-            color: #c0d7ea;
+            color: #7a5a52;
             font-size: 14px;
             margin-top: 15px;
         }
 
         .register-link a {
-            color: #74c0fe;
+            color: #d67a7a;
             text-decoration: none;
             font-weight: bold;
             transition: 0.3s;
         }
 
         .register-link a:hover {
-            color: #ffffff;
+            color: #3d2c2a;
             text-decoration: underline;
         }
 
         /* ===== قسم تغيير كلمة المرور يدوياً ===== */
         .reset-manual-box {
-            background: #1a1a3a;
-            border: 1px solid #74c0fe;
+            background: #fdf6f0;
+            border: 1px solid #d67a7a;
             border-radius: 12px;
             padding: 20px;
             margin-top: 15px;
@@ -258,7 +262,7 @@
         }
 
         .reset-manual-box h3 {
-            color: #fff;
+            color: #3d2c2a;
             font-size: 16px;
             margin-bottom: 15px;
             text-align: center;
@@ -268,9 +272,9 @@
             margin-bottom: 10px;
             padding: 14px 18px;
             border-radius: 25px;
-            border: 2px solid #2a2a4a;
-            background: #141428;
-            color: #fff;
+            border: 2px solid #ecd9cf;
+            background: #ffffff;
+            color: #3d2c2a;
             font-size: 15px;
             outline: none;
             text-align: right;
@@ -278,12 +282,12 @@
         }
 
         .reset-manual-box input:focus {
-            border-color: #74c0fe;
+            border-color: #d67a7a;
         }
 
         .reset-manual-box .small-btn {
-            background: #74c0fe;
-            color: #1a1a2e;
+            background: #d67a7a;
+            color: #ffffff;
             border: none;
             padding: 14px;
             border-radius: 25px;
@@ -295,7 +299,7 @@
         }
 
         .reset-manual-box .small-btn:hover {
-            background: #c0d7ea;
+            background: #c25f5f;
             transform: scale(1.02);
         }
 
@@ -315,20 +319,20 @@
 
         .reset-result.success {
             display: block;
-            color: #51cf66;
-            background: rgba(81, 207, 102, 0.1);
-            border: 1px solid rgba(81, 207, 102, 0.2);
+            color: #27ae60;
+            background: rgba(39, 174, 96, 0.1);
+            border: 1px solid rgba(39, 174, 96, 0.2);
         }
 
         .reset-result.error {
             display: block;
-            color: #ff6b6b;
-            background: rgba(255, 0, 0, 0.1);
-            border: 1px solid rgba(255, 0, 0, 0.2);
+            color: #c0392b;
+            background: rgba(192, 57, 43, 0.1);
+            border: 1px solid rgba(192, 57, 43, 0.2);
         }
 
         .divider {
-            color: #444;
+            color: #040404;
             margin: 15px 0;
             font-size: 13px;
             text-align: center;
@@ -340,12 +344,12 @@
             top: 0;
             width: 100%;
             height: 75px;
-            background: #1a1a2e;
+            background: #0e0e0e;
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 0 40px;
-            box-shadow: 0 2px 12px rgba(116, 192, 254, 0.2);
+            box-shadow: 0 2px 12px rgba(10, 10, 10, 0.3);
             z-index: 1000;
         }
 
@@ -355,7 +359,7 @@
             gap: 10px;
             font-size: 30px;
             font-weight: bold;
-            color: #ffffff;
+            color: #fdf6f0;
         }
 
         .logo img {
@@ -374,16 +378,16 @@
             border: none;
             outline: none;
             border-radius: 30px;
-            background: #ffffff;
+            background: #fdf6f0;
             padding: 0 20px;
             font-size: 16px;
             transition: .3s;
-            color: #1a1a2e;
+            color: #3d2c2a;
         }
 
         .search-box input:focus {
-            background: #f0f7ff;
-            box-shadow: 0 0 0 3px #74c0fe;
+            background: #ffffff;
+            box-shadow: 0 0 0 3px #d67a7a;
         }
 
         .header-buttons {
@@ -393,8 +397,8 @@
         }
 
         .header-buttons button {
-            background: #74c0fe;
-            color: #1a1a2e;
+            background: #d67a7a;
+            color: #ffffff;
             border: none;
             padding: 10px 18px;
             border-radius: 30px;
@@ -405,32 +409,35 @@
         }
 
         .header-buttons button:hover {
-            background: #c0d7ea;
+            background: #c25f5f;
             transform: translateY(-2px);
         }
 
         .header-buttons .logout-btn {
-            background: #ff4444;
+            background: #c0392b;
             color: #fff;
         }
 
         .header-buttons .logout-btn:hover {
-            background: #cc0000;
+            background: #a93226;
         }
 
         .header-buttons .user-email {
-            color: #c0d7ea;
+            color: #ecd9cf;
             font-size: 13px;
-            background: rgba(116, 192, 254, 0.15);
+            background: rgba(214, 122, 122, 0.25);
             padding: 8px 16px;
             border-radius: 20px;
-            border: 1px solid rgba(116, 192, 254, 0.3);
+            border: 1px solid rgba(214, 122, 122, 0.4);
         }
 
         .hero {
             width: 100%;
             height: 420px;
-            background: linear-gradient(135deg, #74c0fe, #c0d7ea);
+            background: linear-gradient(135deg, rgba(61, 44, 42, 0.75), rgba(214, 122, 122, 0.4)), url('https://i.top4top.io/p_38560gcoj0.jpg');
+            background-size: cover;
+            background-position: center;
+            background-blend-mode: overlay;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -440,12 +447,14 @@
         .hero h1 {
             font-size: 48px;
             margin-bottom: 20px;
-            color: #ffffff;
+            color: #090909;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
 
         .hero p {
             font-size: 22px;
-            color: #ffffff;
+            color: #070707;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
         }
 
         /* ===== أقسام المنتجات (4 أقسام) ===== */
@@ -456,7 +465,7 @@
         }
 
         .categories-section h2 {
-            color: #1a1a2e;
+            color: #0d0d0d;
             font-size: 32px;
             text-align: center;
             margin-bottom: 30px;
@@ -469,20 +478,20 @@
         }
 
         .category-card {
-            background: #ffffff;
+            background: #fdf6f0;
             border-radius: 18px;
             overflow: hidden;
             cursor: pointer;
             transition: .3s;
-            box-shadow: 0 6px 18px rgba(116, 192, 254, 0.3);
+            box-shadow: 0 6px 18px rgba(214, 122, 122, 0.25);
             text-align: center;
-            border: 2px solid #c0d7ea;
+            border: 2px solid #ecd9cf;
         }
 
         .category-card:hover {
             transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(116, 192, 254, 0.4);
-            border-color: #74c0fe;
+            box-shadow: 0 20px 40px rgba(214, 122, 122, 0.35);
+            border-color: #d67a7a;
         }
 
         .category-card img {
@@ -492,7 +501,7 @@
         }
 
         .category-card h3 {
-            color: #1a1a2e;
+            color: #3d2c2a;
             padding: 15px;
             font-size: 20px;
         }
@@ -507,18 +516,18 @@
         }
 
         .product-card {
-            background: #ffffff;
+            background: #fdf6f0;
             border-radius: 18px;
             overflow: hidden;
             transition: .3s;
-            box-shadow: 0 6px 18px rgba(116, 192, 254, 0.3);
-            border: 1px solid #c0d7ea;
+            box-shadow: 0 6px 18px rgba(214, 122, 122, 0.2);
+            border: 1px solid #ecd9cf;
         }
 
         .product-card:hover {
             transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(116, 192, 254, 0.4);
-            border-color: #74c0fe;
+            box-shadow: 0 20px 40px rgba(214, 122, 122, 0.3);
+            border-color: #d67a7a;
         }
 
         .product-card img {
@@ -535,7 +544,7 @@
         .product-info h3 {
             font-size: 18px;
             margin-bottom: 10px;
-            color: #1a1a2e;
+            color: #3d2c2a;
         }
 
         .price-container {
@@ -549,7 +558,7 @@
         .current-price {
             font-size: 18px;
             font-weight: bold;
-            color: #1a1a2e;
+            color: #3d2c2a;
         }
 
         .old-price {
@@ -560,15 +569,15 @@
 
         .discount-badge {
             font-size: 12px;
-            color: #28a745;
+            color: #27ae60;
             font-weight: bold;
         }
 
         .add-to-cart-btn {
             width: 100%;
-            background: #74c0fe;
+            background: #d67a7a;
             border: none;
-            color: #1a1a2e;
+            color: #ffffff;
             padding: 12px;
             border-radius: 12px;
             cursor: pointer;
@@ -578,7 +587,7 @@
         }
 
         .add-to-cart-btn:hover {
-            background: #c0d7ea;
+            background: #c25f5f;
             transform: scale(1.02);
         }
 
@@ -591,9 +600,9 @@
         }
 
         .size-btn {
-            background: #f0f7ff;
-            border: 2px solid #74c0fe;
-            color: #1a1a2e;
+            background: #fdf6f0;
+            border: 2px solid #d67a7a;
+            color: #3d2c2a;
             padding: 5px 12px;
             border-radius: 30px;
             font-size: 13px;
@@ -605,21 +614,21 @@
         }
 
         .size-btn:hover {
-            background: #c0d7ea;
+            background: #ecd9cf;
         }
 
         .size-btn.selected {
-            background: #74c0fe;
+            background: #d67a7a;
             color: #ffffff;
-            border-color: #74c0fe;
+            border-color: #d67a7a;
         }
 
         .back-btn {
             display: inline-block;
             margin: 20px 40px;
             padding: 12px 30px;
-            background: #74c0fe;
-            color: #1a1a2e;
+            background: #d67a7a;
+            color: #ffffff;
             border: none;
             border-radius: 30px;
             cursor: pointer;
@@ -629,7 +638,7 @@
         }
 
         .back-btn:hover {
-            background: #c0d7ea;
+            background: #c25f5f;
             transform: scale(1.05);
         }
 
@@ -637,8 +646,8 @@
             position: fixed;
             bottom: 30px;
             right: 30px;
-            background: #1a1a2e;
-            color: #ffffff;
+            background: #3d2c2a;
+            color: #fdf6f0;
             padding: 18px 24px;
             border-radius: 12px;
             opacity: 0;
@@ -647,7 +656,7 @@
             z-index: 9999;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
             font-weight: 600;
-            border: 1px solid #74c0fe;
+            border: 1px solid #d67a7a;
         }
 
         .notification.show {
@@ -658,7 +667,7 @@
         .overlay {
             position: fixed;
             inset: 0;
-            background: rgba(0, 0, 0, .45);
+            background: rgba(61, 44, 42, .45);
             opacity: 0;
             visibility: hidden;
             transition: .3s;
@@ -677,7 +686,7 @@
             width: 400px;
             max-width: 100%;
             height: 100vh;
-            background: #ffffff;
+            background: #fdf6f0;
             display: flex;
             flex-direction: column;
             box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
@@ -694,12 +703,12 @@
             justify-content: space-between;
             align-items: center;
             padding: 20px;
-            border-bottom: 2px solid #74c0fe;
+            border-bottom: 2px solid #d67a7a;
         }
 
         .cart-header h2 {
             font-size: 22px;
-            color: #1a1a2e;
+            color: #3d2c2a;
         }
 
         .cart-header button {
@@ -707,7 +716,7 @@
             background: none;
             font-size: 26px;
             cursor: pointer;
-            color: #1a1a2e;
+            color: #3d2c2a;
         }
 
         #cartItems {
@@ -720,7 +729,7 @@
             display: flex;
             gap: 12px;
             margin-bottom: 18px;
-            border-bottom: 1px solid #e0e0e0;
+            border-bottom: 1px solid #ecd9cf;
             padding-bottom: 15px;
             align-items: center;
         }
@@ -730,7 +739,7 @@
             height: 70px;
             object-fit: contain;
             border-radius: 10px;
-            background: #f5f5f5;
+            background: #ffffff;
         }
 
         .cart-item-info {
@@ -740,11 +749,11 @@
         .cart-item-info h4 {
             font-size: 16px;
             margin-bottom: 4px;
-            color: #1a1a2e;
+            color: #3d2c2a;
         }
 
         .cart-item-price {
-            color: #1a1a2e;
+            color: #3d2c2a;
             font-weight: bold;
         }
 
@@ -759,26 +768,26 @@
             width: 28px;
             height: 28px;
             border: none;
-            background: #74c0fe;
+            background: #d67a7a;
             border-radius: 50%;
             cursor: pointer;
             font-weight: bold;
-            color: #1a1a2e;
+            color: #ffffff;
             font-size: 16px;
         }
 
         .qty-box button:hover {
-            background: #c0d7ea;
+            background: #c25f5f;
         }
 
         .qty-box span {
-            color: #1a1a2e;
+            color: #3d2c2a;
             font-weight: bold;
             font-size: 16px;
         }
 
         .remove-item {
-            color: red;
+            color: #c0392b;
             cursor: pointer;
             font-size: 20px;
             background: none;
@@ -787,15 +796,15 @@
         }
 
         .cart-footer {
-            border-top: 1px solid #e0e0e0;
+            border-top: 1px solid #ecd9cf;
             padding: 20px;
         }
 
         .checkout-btn {
             width: 100%;
             border: none;
-            background: #74c0fe;
-            color: #1a1a2e;
+            background: #d67a7a;
+            color: #ffffff;
             padding: 14px;
             border-radius: 12px;
             cursor: pointer;
@@ -805,14 +814,14 @@
         }
 
         .checkout-btn:hover {
-            background: #c0d7ea;
+            background: #c25f5f;
         }
 
         .clear-cart-btn {
             width: 100%;
             margin-top: 10px;
             border: none;
-            background: #dc3545;
+            background: #c0392b;
             color: #fff;
             padding: 12px;
             border-radius: 12px;
@@ -821,15 +830,15 @@
         }
 
         .clear-cart-btn:hover {
-            background: #b52b39;
+            background: #a93226;
         }
 
         footer {
-            background: #1a1a2e;
-            color: #c0d7ea;
+            background: #0e0e0e;
+            color: #fcf9f8;
             padding: 50px 20px;
             margin-top: 60px;
-            border-top: 2px solid #74c0fe;
+            border-top: 2px solid #d67a7a;
         }
 
         footer p {
@@ -846,7 +855,7 @@
         }
 
         footer a {
-            color: #c0d7ea;
+            color: #fcf8f7;
             text-decoration: none;
             transition: .3s;
             display: inline-flex;
@@ -856,7 +865,7 @@
         }
 
         footer a:hover {
-            color: #74c0fe;
+            color: #d67a7a;
         }
 
         footer a img {
@@ -869,7 +878,7 @@
             display: none;
             justify-content: center;
             align-items: center;
-            background: rgba(0, 0, 0, 0.7);
+            background: rgba(61, 44, 42, 0.8);
             z-index: 2000;
             backdrop-filter: blur(4px);
         }
@@ -883,22 +892,22 @@
             max-width: 500px;
             max-height: 90vh;
             overflow: auto;
-            background: #1a1a2e;
+            background: #fdf6f0;
             border-radius: 20px;
-            border: 2px solid #74c0fe;
+            border: 2px solid #d67a7a;
         }
 
         .privacy-modal-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: #1a1a3a;
+            background: #3d2c2a;
             padding: 20px;
             border-radius: 20px 20px 0 0;
         }
 
         .privacy-modal-header h2 {
-            color: #fff;
+            color: #fdf6f0;
         }
 
         .privacy-modal-header button {
@@ -906,17 +915,17 @@
             border: none;
             font-size: 28px;
             cursor: pointer;
-            color: #fff;
+            color: #fdf6f0;
         }
 
         .privacy-modal-body {
             padding: 25px;
             line-height: 2;
-            color: #c0d7ea;
+            color: #3d2c2a;
         }
 
         .privacy-modal-body h3 {
-            color: #fff;
+            color: #3d2c2a;
             margin-bottom: 10px;
         }
 
@@ -931,30 +940,30 @@
         .checkout-box label {
             font-weight: bold;
             font-size: 15px;
-            color: #c0d7ea;
+            color: #3d2c2a;
         }
 
         .checkout-box input {
             padding: 12px 16px;
-            border: 1px solid #333;
+            border: 1px solid #ecd9cf;
             border-radius: 12px;
-            background: #141428;
-            color: #ffffff;
+            background: #ffffff;
+            color: #3d2c2a;
             font-size: 16px;
             width: 100%;
             outline: none;
         }
 
         .checkout-box input:focus {
-            border-color: #74c0fe;
+            border-color: #d67a7a;
         }
 
         .checkout-box input::placeholder {
-            color: #666;
+            color: #b59588;
         }
 
         .checkout-box input:read-only {
-            background: #1a1a3a;
+            background: #f5ebe5;
             cursor: default;
         }
 
@@ -980,7 +989,7 @@
             font-size: 14px;
             transition: 0.3s;
             white-space: nowrap;
-            color: #1a1a2e;
+            color: #ffffff;
         }
 
         .location-btn:hover {
@@ -988,19 +997,19 @@
         }
 
         .location-btn.gps {
-            background: #74c0fe;
+            background: #d67a7a;
         }
 
         .location-btn.gps:hover {
-            background: #c0d7ea;
+            background: #c25f5f;
         }
 
         .location-btn.map {
-            background: #74c0fe;
+            background: #3d2c2a;
         }
 
         .location-btn.map:hover {
-            background: #c0d7ea;
+            background: #5a403c;
         }
 
         .location-hint {
@@ -1123,16 +1132,16 @@
         }
 
         ::-webkit-scrollbar-track {
-            background: #1a1a2e;
+            background: #3d2c2a;
         }
 
         ::-webkit-scrollbar-thumb {
-            background: #74c0fe;
+            background: #d67a7a;
             border-radius: 10px;
         }
 
         ::-webkit-scrollbar-thumb:hover {
-            background: #c0d7ea;
+            background: #c25f5f;
         }
     </style>
 </head>
@@ -1166,7 +1175,7 @@
 
     <!-- ===== شاشة التسجيل ===== -->
     <div id="registerScreen"
-        style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.95); z-index: 99998; backdrop-filter: blur(10px); justify-content: center; align-items: center;">
+        style="display: none; position: fixed; inset: 0; background: rgba(61,44,42,0.95); z-index: 99998; backdrop-filter: blur(10px); justify-content: center; align-items: center;">
         <div class="login-box">
             <img src="https://i.top4top.io/p_3854kn46f0.jpg" alt="JoJo Logo" class="logo-img">
             <h2>📝 إنشاء حساب</h2>
@@ -1188,7 +1197,7 @@
     </div>
     <!-- ===== شاشة إعادة تعيين كلمة المرور ===== -->
     <div id="resetPasswordScreen"
-        style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.95); z-index: 99998; backdrop-filter: blur(10px); justify-content: center; align-items: center;">
+        style="display: none; position: fixed; inset: 0; background: rgba(61,44,42,0.95); z-index: 99998; backdrop-filter: blur(10px); justify-content: center; align-items: center;">
         <div class="login-box">
             <img src="https://i.top4top.io/p_3854kn46f0.jpg" alt="JoJo Logo" class="logo-img">
             <h2>🔑 إعادة تعيين كلمة المرور</h2>
@@ -1207,7 +1216,7 @@
                 <h3>🔧 تغيير كلمة المرور يدوياً</h3>
                 <p style="color:#888; font-size:13px; text-align:center; margin-bottom:12px;">
                     📧 سيتم إرسال كلمة المرور الجديدة إلى بريدك من <strong
-                        style="color:#74c0fe;">jojocharm10@gmail.com</strong>
+                        style="color:#d67a7a;">jojocharm10@gmail.com</strong>
                 </p>
                 <input type="email" id="manualEmail" placeholder="✉️ البريد الإلكتروني">
                 <input type="password" id="manualOldPassword" placeholder="🔑 كلمة المرور الحالية">
@@ -1245,13 +1254,13 @@
             </div>
         </header>
 
-       <!-- ===== هيرو الصورة ===== -->
-<section class="hero" style="background: linear-gradient(135deg, rgba(26, 26, 46, 0.7), rgba(116, 192, 254, 0.5)), url('https://i.top4top.io/p_38560gcoj0.jpg'); background-size: cover; background-position: center; background-blend-mode: overlay;">
-    <div class="hero-text">
-        <h1> أهلاً بك في JoJo Charm</h1>
-        <p>أفضل العروض والمنتجات بأفضل الأسعار.</p>
-    </div>
-</section>
+        <!-- ===== هيرو الصورة ===== -->
+        <section class="hero">
+            <div class="hero-text">
+                <h1> أهلاً بك في JoJo Charm</h1>
+                <p>أفضل العروض والمنتجات بأفضل الأسعار.</p>
+            </div>
+        </section>
 
         <!-- ===== أقسام المنتجات (4 أقسام) ===== -->
         <section class="categories-section" id="categoriesSection">
@@ -1276,7 +1285,7 @@
                     <img src="https://e.top4top.io/p_3856gump01.jpeg" alt="Makeup">
                     <h3>💄 Makeup</h3>
                 </div>
-                  <div class="category-card" onclick="filterByCategory('Accessories Hand made')">
+                <div class="category-card" onclick="filterByCategory('Accessories Hand made')">
                     <img src="https://f.top4top.io/p_385600ghh4.jpeg" alt="Accessories Hand made">
                     <h3>💍 Accessories Hand made </h3>
                 </div>
@@ -1301,8 +1310,8 @@
                 </p>
             </div>
             <div class="cart-footer">
-                <h3 style="color:#1a1a2e;">الإجمالي</h3>
-                <h2 id="cartAviro" style="color:#1a1a2e;">0 ج.م</h2>
+                <h3 style="color:#3d2c2a;">الإجمالي</h3>
+                <h2 id="cartAviro" style="color:#3d2c2a;">0 ج.م</h2>
                 <button class="checkout-btn" onclick="checkout()">إتمام الشراء</button>
                 <button class="clear-cart-btn" onclick="clearCart()">تفريغ العربة</button>
             </div>
@@ -1322,7 +1331,7 @@
                         به القانون.</p>
                     <p>جميع بيانات الدفع يتم تشفيرها باستخدام تقنيات آمنة.</p>
                     <p>يمكنك طلب حذف بياناتك في أي وقت عبر التواصل معنا.</p>
-                    <p>البريد الإلكتروني: <strong style="color:#74c0fe;">jojocharm10@gmail.com</strong></p>
+                    <p>البريد الإلكتروني: <strong style="color:#d67a7a;">jojocharm10@gmail.com</strong></p>
                 </div>
             </div>
         </div>
@@ -1341,7 +1350,7 @@
 
                         <label for="clientEmail">✉️ البريد الإلكتروني (سيصلك التأكيد عليه):</label>
                         <input type="email" id="clientEmail" value="jojocharm10@gmail.com" readonly
-                            style="background: #1a1a3a; cursor: default; opacity: 0.8;">
+                            style="background: #f5ebe5; cursor: default; opacity: 0.8;">
 
                         <label for="clientLocation">📍 الموقع:</label>
                         <div class="location-btn-group">
@@ -1743,7 +1752,7 @@
                 resultDiv.className = 'reset-result success';
                 resultDiv.innerHTML = `
                     ✅ تم تغيير كلمة المرور بنجاح!<br>
-                    📧 تم إرسال كلمة المرور الجديدة إلى بريدك من <strong style="color:#74c0fe;">jojocharm10@gmail.com</strong>
+                    📧 تم إرسال كلمة المرور الجديدة إلى بريدك من <strong style="color:#d67a7a;">jojocharm10@gmail.com</strong>
                 `;
 
                 showNotification('✅ تم تغيير كلمة المرور بنجاح!');
@@ -2266,7 +2275,7 @@
                         <div class="cart-item-info">
                             <h4>${item.name}</h4>
                             <p class="cart-item-price">${item.price} ج.م</p>
-                            <p style="color:#1a1a2e; font-size:14px; margin:2px 0;">المقاس: ${item.selectedSize || 'غير محدد'}</p>
+                            <p style="color:#3d2c2a; font-size:14px; margin:2px 0;">المقاس: ${item.selectedSize || 'غير محدد'}</p>
                             <div class="qty-box">
                                 <button onclick="changeQuantity(${item.id}, -1, '${item.selectedSize}')">-</button>
                                 <span>${item.quantity}</span>
