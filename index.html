@@ -737,16 +737,19 @@
 </head>
 <body>
 
-    <div id="loginScreen" class="hidden">
+    <div id="loginScreen">
         <div class="login-box">
             <img src="https://i.top4top.io/p_3854kn46f0.jpg" alt="JoJo Logo" class="logo-img" />
             <h2>🔐 JoJo Charm</h2>
             <p class="subtitle">سجل الدخول لتأكيد الطلب</p>
+            
             <button class="google-btn" id="googleLoginBtn">
                 <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google" />
                 تسجيل الدخول بـ Google
             </button>
+            
             <div class="divider">أو</div>
+            
             <input type="email" id="loginEmail" placeholder="✉️ البريد الإلكتروني" />
             <input type="password" id="loginPassword" placeholder="🔑 كلمة المرور" />
             <button class="login-btn" id="loginBtn">دخول 🚀</button>
@@ -763,11 +766,14 @@
             <img src="https://i.top4top.io/p_3854kn46f0.jpg" alt="JoJo Logo" class="logo-img" />
             <h2>📝 إنشاء حساب</h2>
             <p class="subtitle">سجل الآن لتأكيد طلبك</p>
+            
             <button class="google-btn" id="googleRegisterBtn">
                 <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google" />
                 التسجيل بـ Google
             </button>
+            
             <div class="divider">أو</div>
+            
             <input type="text" id="registerName" placeholder="👤 الاسم الكامل" />
             <input type="tel" id="registerPhone" placeholder="📱 رقم الهاتف" />
             <input type="email" id="registerEmail" placeholder="✉️ البريد الإلكتروني" />
@@ -907,6 +913,7 @@
     </div>
 
     <script>
+        // ===== تهيئة Firebase =====
         const firebaseConfig = {
             apiKey: "AIzaSyD6UTwGO8_Rg8gtiGYcWMIC8T4aT0riMHw",
             authDomain: "jojo-charm.firebaseapp.com",
@@ -921,6 +928,12 @@
         const auth = firebase.auth();
         const provider = new firebase.auth.GoogleAuthProvider();
 
+        // تفعيل خاصية اختيار الحساب
+        provider.setCustomParameters({
+            prompt: 'select_account'
+        });
+
+        // ===== بيانات المنتجات =====
         const productsData = [{
             id: 1,
             name: "شورت رجالي صيفي",
@@ -1298,6 +1311,7 @@
             document.getElementById('clientLocation').focus();
         };
 
+        // ===== دوال جوجل =====
         function handleGoogleLogin() {
             auth.signInWithPopup(provider)
                 .then((result) => {
@@ -1312,7 +1326,15 @@
                 })
                 .catch((error) => {
                     console.error('خطأ في تسجيل الدخول بجوجل:', error);
-                    document.getElementById('loginError').textContent = '⚠️ فشل تسجيل الدخول بجوجل';
+                    let msg = '⚠️ فشل تسجيل الدخول بجوجل';
+                    if (error.code === 'auth/popup-blocked') {
+                        msg = '⚠️ تم حظر النافذة المنبثقة. يرجى السماح بالنوافذ المنبثقة لهذا الموقع.';
+                    } else if (error.code === 'auth/popup-closed-by-user') {
+                        msg = '⚠️ تم إغلاق النافذة قبل إتمام تسجيل الدخول. حاول مرة أخرى.';
+                    } else if (error.code === 'auth/cancelled-popup-request') {
+                        msg = '⚠️ تم إلغاء طلب تسجيل الدخول. حاول مرة أخرى.';
+                    }
+                    document.getElementById('loginError').textContent = msg;
                     document.getElementById('loginError').classList.add('show');
                 });
         }
@@ -1332,7 +1354,13 @@
                 })
                 .catch((error) => {
                     console.error('خطأ في التسجيل بجوجل:', error);
-                    document.getElementById('registerError').textContent = '⚠️ فشل التسجيل بجوجل';
+                    let msg = '⚠️ فشل التسجيل بجوجل';
+                    if (error.code === 'auth/popup-blocked') {
+                        msg = '⚠️ تم حظر النافذة المنبثقة. يرجى السماح بالنوافذ المنبثقة لهذا الموقع.';
+                    } else if (error.code === 'auth/popup-closed-by-user') {
+                        msg = '⚠️ تم إغلاق النافذة قبل إتمام التسجيل. حاول مرة أخرى.';
+                    }
+                    document.getElementById('registerError').textContent = msg;
                     document.getElementById('registerError').classList.add('show');
                 });
         }
@@ -1473,6 +1501,7 @@
             }
         };
 
+        // ===== ربط أزرار جوجل =====
         document.getElementById('googleLoginBtn').addEventListener('click', handleGoogleLogin);
         document.getElementById('googleRegisterBtn').addEventListener('click', handleGoogleRegister);
 
@@ -1491,7 +1520,6 @@
             document.getElementById('checkoutModal').classList.remove('open');
         };
 
-        // ===== إرسال الطلب إلى FormInit مع أسماء فريدة لتجنب التعارض =====
         window.sendOrderToFormInit = function() {
             const name = document.getElementById('clientName').value.trim();
             const email = document.getElementById('clientEmail').value.trim();
@@ -1511,13 +1539,11 @@
                 orderDetails += `${i+1}. ${item.name} | مقاس: ${item.selectedSize} | ك: ${item.quantity} | ${itemTotal} ج.م\n`;
             });
 
-            // إنشاء نموذج وإرساله مع أسماء فريدة
             const form = document.createElement('form');
             form.method = 'POST';
             form.action = 'https://forminit.com/f/rayj3po7a87';
             form.target = '_blank';
 
-            // استخدام أسماء فريدة لكل حقل لتجنب التعارض
             const fields = {
                 'fi-sender-fullName': name,
                 'fi-sender-email': email,
@@ -1559,9 +1585,6 @@
             updateCartIconCount();
             document.getElementById('mainContent').style.display = 'block';
             document.getElementById('clientEmail').value = 'jojocharm10@gmail.com';
-            if (auth.currentUser) {
-                document.getElementById('loginScreen').classList.add('hidden');
-            }
         });
 
         window.displayProducts = displayProducts;
