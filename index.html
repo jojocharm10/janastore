@@ -22,17 +22,19 @@
         html { scroll-behavior: smooth; }
         body { background: #fdf6f0; color: #3d2c2a; }
 
+        /* ===== شاشة تسجيل الدخول (تظهر فقط عند الضغط على زر الدخول) ===== */
         #loginScreen {
             position: fixed;
             inset: 0;
             background: rgba(61, 44, 42, 0.95);
-            display: flex;
+            display: none;
             justify-content: center;
             align-items: center;
             z-index: 99999;
             backdrop-filter: blur(10px);
             transition: opacity 0.6s ease;
         }
+        #loginScreen.show { display: flex; }
         #loginScreen.hidden { opacity: 0; pointer-events: none; }
 
         .login-box {
@@ -158,6 +160,38 @@
         }
         .profile-box h2 { font-size: 24px; margin-bottom: 8px; color: #3d2c2a; font-weight: 800; }
         .profile-box .subtitle { color: #0b0b0b; margin-bottom: 20px; font-size: 14px; }
+        .profile-box .phone-input-group {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 14px;
+        }
+        .profile-box .phone-input-group .country-code {
+            background: #f5ebe5;
+            border: 2px solid #ecd9cf;
+            border-radius: 30px;
+            padding: 14px 12px;
+            font-size: 15px;
+            font-weight: bold;
+            color: #3d2c2a;
+            min-width: 55px;
+            text-align: center;
+            user-select: none;
+        }
+        .profile-box .phone-input-group input {
+            flex: 1;
+            padding: 14px 20px;
+            border-radius: 30px;
+            border: 2px solid #ecd9cf;
+            background: #ffffff;
+            color: #3d2c2a;
+            font-size: 15px;
+            outline: none;
+            transition: 0.3s;
+            text-align: right;
+            margin-bottom: 0;
+        }
+        .profile-box .phone-input-group input:focus { border-color: #d67a7a; background: #fdf6f0; }
         .profile-box input {
             width: 100%;
             padding: 14px 20px;
@@ -252,16 +286,18 @@
             border-radius: 20px;
             border: 1px solid rgba(214,122,122,0.4);
         }
-        .account-btn {
-            background: #2d2d2d !important;
+        .login-header-btn {
+            background: transparent !important;
             border: 2px solid #d67a7a !important;
             display: flex;
             align-items: center;
             gap: 6px;
             padding: 6px 14px !important;
         }
-        .account-btn:hover { background: #3d3d3d !important; }
-        .account-btn img { width: 18px; height: 18px; border-radius: 50%; }
+        .login-header-btn:hover { background: rgba(214,122,122,0.15) !important; }
+        .login-header-btn img { width: 18px; height: 18px; border-radius: 50%; }
+        .logout-header-btn { background: #c0392b !important; }
+        .logout-header-btn:hover { background: #a93226 !important; }
 
         /* ===== الهيرو ===== */
         .hero {
@@ -565,8 +601,10 @@
             .profile-box { padding: 25px 18px; margin: 15px; }
             .header-buttons button { padding: 6px 12px; font-size: 12px; }
             .header-buttons .user-email { font-size: 10px; padding: 4px 8px; }
-            .account-btn { padding: 4px 10px !important; font-size: 11px !important; }
-            .account-btn img { width: 14px; height: 14px; }
+            .login-header-btn { padding: 4px 10px !important; font-size: 11px !important; }
+            .login-header-btn img { width: 14px; height: 14px; }
+            .profile-box .phone-input-group { flex-direction: row; }
+            .profile-box .phone-input-group .country-code { min-width: 45px; padding: 12px 8px; font-size: 13px; }
         }
         ::-webkit-scrollbar { width: 6px; }
         ::-webkit-scrollbar-track { background: #3d2c2a; }
@@ -576,7 +614,7 @@
 </head>
 <body>
 
-    <!-- ===== شاشة تسجيل الدخول ===== -->
+    <!-- ===== شاشة تسجيل الدخول (تظهر عند الضغط على زر الدخول) ===== -->
     <div id="loginScreen">
         <div class="login-box">
             <img src="https://i.top4top.io/p_3854kn46f0.jpg" alt="JoJo Logo" class="logo-img" />
@@ -598,6 +636,9 @@
             <div id="loginSuccess" class="login-success">✅ تم الدخول بنجاح!</div>
             <div class="register-link">
                 ليس لديك حساب؟ <a href="#" onclick="showRegister()">سجل الآن</a>
+            </div>
+            <div style="margin-top: 12px;">
+                <button class="login-btn" onclick="closeLoginScreen()" style="background:#888; font-size:14px;">✕ إغلاق</button>
             </div>
         </div>
     </div>
@@ -627,17 +668,23 @@
             <div class="register-link">
                 لديك حساب؟ <a href="#" onclick="showLogin()">تسجيل الدخول</a>
             </div>
+            <div style="margin-top: 12px;">
+                <button class="login-btn" onclick="closeRegisterScreen()" style="background:#888; font-size:14px;">✕ إغلاق</button>
+            </div>
         </div>
     </div>
 
-    <!-- ===== نافذة إدخال البيانات بعد جوجل ===== -->
+    <!-- ===== نافذة إدخال البيانات بعد جوجل (مع كود البلد +20) ===== -->
     <div id="profileModal">
         <div class="profile-box">
             <img src="https://i.top4top.io/p_3854kn46f0.jpg" alt="JoJo Logo" class="logo-img" />
             <h2>👤 أكمل بياناتك</h2>
             <p class="subtitle">يرجى إدخال اسمك ورقم هاتفك لتأكيد الطلبات</p>
             <input type="text" id="profileName" placeholder="👤 الاسم الكامل" />
-            <input type="tel" id="profilePhone" placeholder="📱 رقم الهاتف" />
+            <div class="phone-input-group">
+                <span class="country-code">+20</span>
+                <input type="tel" id="profilePhone" placeholder="📱 رقم الهاتف (مثال: 1012345678)" />
+            </div>
             <button class="profile-btn" id="saveProfileBtn">✅ حفظ البيانات</button>
             <button class="skip-btn" id="skipProfileBtn">⏭️ تخطي (سأدخلها لاحقاً)</button>
         </div>
@@ -657,12 +704,12 @@
             </div>
             <div class="header-buttons">
                 <span class="user-email" id="userEmailDisplay">زائر</span>
-                <button class="account-btn" onclick="openAccount()">
+                <button class="login-header-btn" id="loginHeaderBtn" onclick="openLogin()">
                     <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google" />
-                    <span id="accountBtnText">حسابي</span>
+                    <span id="loginBtnText">تسجيل الدخول</span>
                 </button>
                 <button onclick="toggleCart()">🛒 <span id="CartCount">0</span></button>
-                <button onclick="handleLogout()" style="background:#c0392b;">🚪 خروج</button>
+                <button id="logoutBtn" onclick="handleLogout()" style="display:none; background:#c0392b;">🚪 خروج</button>
             </div>
         </header>
 
@@ -772,24 +819,24 @@
     <script>
         // ============================================================
         // 1. تهيئة Firebase
-        
-    const firebaseConfig = {
-        apiKey: "AIzaSyD6UTwGO8_Rg8gtiGYcWMIC8T4aT0riMHw",
-        authDomain: "jogo-a2b13.firebaseapp.com",        // ✅ صح
-        projectId: "jogo-a2b13",                         // ✅ صح
-        storageBucket: "jogo-a2b13.firebasestorage.app", // ✅ صح
-        messagingSenderId: "644783047610",
-        appId: "1:644783047610:web:186d3a21c618bb7c279383",
-        measurementId: "G-5QJ21EM2R5"
-    };
+        // ============================================================
+        const firebaseConfig = {
+            apiKey: "AIzaSyD6UTwGO8_Rg8gtiGYcWMIC8T4aT0riMHw",
+            authDomain: "jogo-a2b13.firebaseapp.com",
+            projectId: "jogo-a2b13",
+            storageBucket: "jogo-a2b13.firebasestorage.app",
+            messagingSenderId: "644783047610",
+            appId: "1:644783047610:web:186d3a21c618bb7c279383",
+            measurementId: "G-5QJ21EM2R5"
+        };
 
-    firebase.initializeApp(firebaseConfig);
-    const auth = firebase.auth();
-    const provider = new firebase.auth.GoogleAuthProvider();
-    provider.setCustomParameters({ prompt: 'select_account' });
+        firebase.initializeApp(firebaseConfig);
+        const auth = firebase.auth();
+        const provider = new firebase.auth.GoogleAuthProvider();
+        provider.setCustomParameters({ prompt: 'select_account' });
 
         // ============================================================
-        // 2. بيانات المنتجات
+        // 2. بيانات المنتجات (نفسها)
         // ============================================================
         const productsData = [{
             id: 1,
@@ -1178,26 +1225,57 @@
         };
 
         // ============================================================
-        // 7. دوال تسجيل الدخول بجوجل (مُصلحة)
+        // 7. دوال تسجيل الدخول (مع نافذة إدخال البيانات)
         // ============================================================
         function showProfileModal(user) {
             document.getElementById('profileModal').classList.add('open');
             document.getElementById('profileName').value = user.displayName || userProfile.name || '';
+            // يتم عرض رقم الهاتف مع +20 فقط في العرض
             document.getElementById('profilePhone').value = userProfile.phone || '';
         }
 
         function saveUserProfile() {
             const name = document.getElementById('profileName').value.trim();
-            const phone = document.getElementById('profilePhone').value.trim();
+            let phone = document.getElementById('profilePhone').value.trim();
+            
+            // إزالة +20 إذا كانت موجودة في البداية
+            if (phone.startsWith('+20')) {
+                phone = phone.substring(3);
+            }
+            // إزالة أي مسافات أو شرطات
+            phone = phone.replace(/[\s\-]/g, '');
+            
             if (name) userProfile.name = name;
             if (phone) userProfile.phone = phone;
             localStorage.setItem('userProfile', JSON.stringify(userProfile));
+            
             document.getElementById('clientName').value = userProfile.name || '';
             document.getElementById('clientPhone').value = userProfile.phone || '';
             document.getElementById('profileModal').classList.remove('open');
+            
+            // تحديث واجهة المستخدم
+            updateUIForLoggedInUser();
             showNotification('✅ تم حفظ بياناتك بنجاح!');
         }
 
+        function updateUIForLoggedInUser() {
+            const loginBtn = document.getElementById('loginHeaderBtn');
+            const loginBtnText = document.getElementById('loginBtnText');
+            const logoutBtn = document.getElementById('logoutBtn');
+            const userEmailDisplay = document.getElementById('userEmailDisplay');
+            
+            if (currentUser) {
+                loginBtnText.textContent = currentUser.displayName || currentUser.email || 'حسابي';
+                userEmailDisplay.textContent = currentUser.email || 'مستخدم';
+                logoutBtn.style.display = 'inline-block';
+            } else {
+                loginBtnText.textContent = 'تسجيل الدخول';
+                userEmailDisplay.textContent = 'زائر';
+                logoutBtn.style.display = 'none';
+            }
+        }
+
+        // ===== دوال تسجيل الدخول بجوجل =====
         function handleGoogleLogin() {
             const errorEl = document.getElementById('googleError');
             errorEl.classList.remove('show');
@@ -1213,11 +1291,10 @@
                 .then((result) => {
                     const user = result.user;
                     currentUser = user;
-                    document.getElementById('userEmailDisplay').textContent = user.email || 'مستخدم';
-                    document.getElementById('accountBtnText').textContent = user.displayName || 'حسابي';
-                    document.getElementById('loginScreen').classList.add('hidden');
+                    document.getElementById('loginScreen').classList.remove('show');
                     showProfileModal(user);
                     showNotification('✅ تم تسجيل الدخول بنجاح!');
+                    updateUIForLoggedInUser();
                 })
                 .catch((error) => {
                     console.error('❌ خطأ جوجل:', error.code, error.message);
@@ -1255,12 +1332,11 @@
                 .then((result) => {
                     const user = result.user;
                     currentUser = user;
-                    document.getElementById('userEmailDisplay').textContent = user.email || 'مستخدم';
-                    document.getElementById('accountBtnText').textContent = user.displayName || 'حسابي';
                     document.getElementById('registerScreen').style.display = 'none';
-                    document.getElementById('loginScreen').classList.add('hidden');
+                    document.getElementById('loginScreen').classList.remove('show');
                     showProfileModal(user);
                     showNotification('✅ تم التسجيل بنجاح!');
+                    updateUIForLoggedInUser();
                 })
                 .catch((error) => {
                     console.error('❌ خطأ تسجيل جوجل:', error.code, error.message);
@@ -1287,47 +1363,45 @@
         }
 
         // ============================================================
-        // 8. ربط الأزرار
+        // 8. دوال فتح وإغلاق الشاشات
         // ============================================================
-        document.getElementById('googleLoginBtn').addEventListener('click', handleGoogleLogin);
-        document.getElementById('googleRegisterBtn').addEventListener('click', handleGoogleRegister);
-        document.getElementById('saveProfileBtn').addEventListener('click', saveUserProfile);
-        document.getElementById('skipProfileBtn').addEventListener('click', function() {
-            document.getElementById('profileModal').classList.remove('open');
-            showNotification('⏭️ يمكنك إدخال البيانات لاحقاً');
-        });
-
-        // ============================================================
-        // 9. دوال المصادقة
-        // ============================================================
-        window.openAccount = function() {
+        window.openLogin = function() {
             if (currentUser) {
                 showNotification('👤 ' + (currentUser.displayName || currentUser.email || 'مستخدم'));
-            } else {
-                document.getElementById('loginScreen').classList.remove('hidden');
+                return;
             }
+            document.getElementById('loginScreen').classList.add('show');
+        };
+
+        window.closeLoginScreen = function() {
+            document.getElementById('loginScreen').classList.remove('show');
+        };
+
+        window.closeRegisterScreen = function() {
+            document.getElementById('registerScreen').style.display = 'none';
         };
 
         window.showRegister = function() {
-            document.getElementById('loginScreen').classList.add('hidden');
+            document.getElementById('loginScreen').classList.remove('show');
             document.getElementById('registerScreen').style.display = 'flex';
             document.getElementById('registerError').classList.remove('show');
             document.getElementById('registerSuccess').classList.remove('show');
         };
         window.showLogin = function() {
             document.getElementById('registerScreen').style.display = 'none';
-            document.getElementById('loginScreen').classList.remove('hidden');
+            document.getElementById('loginScreen').classList.add('show');
             document.getElementById('loginError').classList.remove('show');
             document.getElementById('loginSuccess').classList.remove('show');
         };
 
         window.handleLogout = function() {
+            if (!currentUser) return;
             if (confirm('تسجيل الخروج؟')) {
                 auth.signOut().then(() => {
                     currentUser = null;
-                    document.getElementById('loginScreen').classList.remove('hidden');
                     document.getElementById('userEmailDisplay').textContent = 'زائر';
-                    document.getElementById('accountBtnText').textContent = 'حسابي';
+                    document.getElementById('loginBtnText').textContent = 'تسجيل الدخول';
+                    document.getElementById('logoutBtn').style.display = 'none';
                     showNotification('👋 تم تسجيل الخروج');
                     if (document.getElementById('cartSidebar').classList.contains('open')) toggleCart();
                 });
@@ -1335,7 +1409,7 @@
         };
 
         // ============================================================
-        // 10. دوال البريد الإلكتروني
+        // 9. دوال البريد الإلكتروني
         // ============================================================
         document.getElementById('loginBtn').addEventListener('click', function() {
             const email = document.getElementById('loginEmail').value.trim();
@@ -1357,11 +1431,12 @@
                     document.getElementById('clientEmail').value = user.email || '';
                     document.getElementById('clientPhone').value = userProfile.phone || '';
                     document.getElementById('userEmailDisplay').textContent = user.email || 'مستخدم';
-                    document.getElementById('accountBtnText').textContent = user.displayName || 'حسابي';
+                    document.getElementById('loginBtnText').textContent = user.displayName || 'حسابي';
+                    document.getElementById('logoutBtn').style.display = 'inline-block';
                     successEl.textContent = '✅ تم الدخول بنجاح!';
                     successEl.classList.add('show');
                     setTimeout(() => {
-                        document.getElementById('loginScreen').classList.add('hidden');
+                        document.getElementById('loginScreen').classList.remove('show');
                         showNotification('👋 مرحباً ' + (user.displayName || 'عميل') + '!');
                     }, 800);
                 })
@@ -1407,12 +1482,13 @@
                     document.getElementById('clientPhone').value = phone;
                     document.getElementById('clientEmail').value = email;
                     document.getElementById('userEmailDisplay').textContent = email;
-                    document.getElementById('accountBtnText').textContent = name || 'حسابي';
+                    document.getElementById('loginBtnText').textContent = name || 'حسابي';
+                    document.getElementById('logoutBtn').style.display = 'inline-block';
                     successEl.textContent = '✅ تم إنشاء الحساب بنجاح!';
                     successEl.classList.add('show');
                     setTimeout(() => {
                         document.getElementById('registerScreen').style.display = 'none';
-                        document.getElementById('loginScreen').classList.add('hidden');
+                        document.getElementById('loginScreen').classList.remove('show');
                         showNotification('👋 مرحباً ' + name + '!');
                     }, 1000);
                 })
@@ -1427,14 +1503,15 @@
         });
 
         // ============================================================
-        // 11. مراقبة حالة المستخدم
+        // 10. مراقبة حالة المستخدم
         // ============================================================
         auth.onAuthStateChanged((user) => {
             if (user) {
                 currentUser = user;
-                document.getElementById('userEmailDisplay').textContent = user.email || 'مستخدم';
                 document.getElementById('clientEmail').value = user.email || '';
-                document.getElementById('accountBtnText').textContent = user.displayName || 'حسابي';
+                document.getElementById('userEmailDisplay').textContent = user.email || 'مستخدم';
+                document.getElementById('loginBtnText').textContent = user.displayName || 'حسابي';
+                document.getElementById('logoutBtn').style.display = 'inline-block';
                 if (user.displayName && !userProfile.name) {
                     document.getElementById('clientName').value = user.displayName;
                 }
@@ -1444,12 +1521,25 @@
                 if (userProfile.phone) {
                     document.getElementById('clientPhone').value = userProfile.phone;
                 }
-                document.getElementById('loginScreen').classList.add('hidden');
+                document.getElementById('loginScreen').classList.remove('show');
             } else {
                 currentUser = null;
                 document.getElementById('userEmailDisplay').textContent = 'زائر';
-                document.getElementById('accountBtnText').textContent = 'حسابي';
+                document.getElementById('loginBtnText').textContent = 'تسجيل الدخول';
+                document.getElementById('logoutBtn').style.display = 'none';
             }
+        });
+
+        // ============================================================
+        // 11. ربط الأزرار
+        // ============================================================
+        document.getElementById('googleLoginBtn').addEventListener('click', handleGoogleLogin);
+        document.getElementById('googleRegisterBtn').addEventListener('click', handleGoogleRegister);
+        document.getElementById('saveProfileBtn').addEventListener('click', saveUserProfile);
+        document.getElementById('skipProfileBtn').addEventListener('click', function() {
+            document.getElementById('profileModal').classList.remove('open');
+            updateUIForLoggedInUser();
+            showNotification('⏭️ يمكنك إدخال البيانات لاحقاً');
         });
 
         // ============================================================
@@ -1468,7 +1558,7 @@
         window.checkout = function() {
             if (cart.length === 0) { showNotification("⚠️ عربتك فارغة!"); return; }
             if (!currentUser) {
-                document.getElementById('loginScreen').classList.remove('hidden');
+                document.getElementById('loginScreen').classList.add('show');
                 showNotification('🔐 يرجى تسجيل الدخول أولاً');
                 return;
             }
@@ -1486,7 +1576,7 @@
 
         window.sendOrderToFormInit = function() {
             const name = document.getElementById('clientName').value.trim();
-            const phone = document.getElementById('clientPhone').value.trim();
+            let phone = document.getElementById('clientPhone').value.trim();
             const location = document.getElementById('clientLocation').value.trim();
             const email = document.getElementById('clientEmail').value.trim();
 
@@ -1494,13 +1584,19 @@
             if (!phone) { showNotification('⚠️ يرجى إدخال رقم الهاتف'); return; }
             if (!location) { showNotification('⚠️ يرجى إدخال العنوان'); return; }
 
+            // إزالة +20 إذا كانت موجودة
+            if (phone.startsWith('+20')) {
+                phone = phone.substring(3);
+            }
+            phone = phone.replace(/[\s\-]/g, '');
+
             userProfile.name = name;
             userProfile.phone = phone;
             localStorage.setItem('userProfile', JSON.stringify(userProfile));
 
             let orderDetails = `🛒 طلب جديد من JoJo Charm\n`;
             orderDetails += `👤 الاسم: ${name}\n`;
-            orderDetails += `📱 الهاتف: ${phone}\n`;
+            orderDetails += `📱 الهاتف: +20${phone}\n`;
             orderDetails += `📍 العنوان: ${location}\n`;
             orderDetails += `✉️ البريد: ${email}\n\n`;
             orderDetails += `🛍️ المنتجات:\n`;
@@ -1529,6 +1625,9 @@
         displayProducts([]);
         updateCartIconCount();
         renderCart();
+
+        // تحديث واجهة المستخدم عند التحميل
+        updateUIForLoggedInUser();
 
         console.log('🛍️ JoJo Charm جاهز!');
         console.log('📍 النطاق الحالي:', window.location.hostname);
