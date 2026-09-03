@@ -19,13 +19,8 @@
             box-sizing: border-box;
             font-family: 'Cairo', "Segoe UI", Tahoma, sans-serif;
         }
-        html {
-            scroll-behavior: smooth;
-        }
-        body {
-            background: #fdf6f0;
-            color: #3d2c2a;
-        }
+        html { scroll-behavior: smooth; }
+        body { background: #fdf6f0; color: #3d2c2a; }
 
         #loginScreen {
             position: fixed;
@@ -38,10 +33,7 @@
             backdrop-filter: blur(10px);
             transition: opacity 0.6s ease;
         }
-        #loginScreen.hidden {
-            opacity: 0;
-            pointer-events: none;
-        }
+        #loginScreen.hidden { opacity: 0; pointer-events: none; }
 
         .login-box {
             background: #fdf6f0;
@@ -68,17 +60,8 @@
             padding: 8px;
             border: 3px solid #0a0a0a;
         }
-        .login-box h2 {
-            font-size: 28px;
-            margin-bottom: 4px;
-            color: #3d2c2a;
-            font-weight: 800;
-        }
-        .login-box .subtitle {
-            color: #0b0b0b;
-            margin-bottom: 20px;
-            font-size: 14px;
-        }
+        .login-box h2 { font-size: 28px; margin-bottom: 4px; color: #3d2c2a; font-weight: 800; }
+        .login-box .subtitle { color: #0b0b0b; margin-bottom: 20px; font-size: 14px; }
         .login-box input {
             width: 100%;
             padding: 14px 20px;
@@ -92,13 +75,8 @@
             transition: 0.3s;
             text-align: right;
         }
-        .login-box input:focus {
-            border-color: #d67a7a;
-            background: #fdf6f0;
-        }
-        .login-box input::placeholder {
-            color: #b59588;
-        }
+        .login-box input:focus { border-color: #d67a7a; background: #fdf6f0; }
+        .login-box input::placeholder { color: #b59588; }
         .login-btn {
             width: 100%;
             padding: 14px;
@@ -112,29 +90,10 @@
             transition: 0.3s;
             margin-top: 6px;
         }
-        .login-btn:hover {
-            background: #c25f5f;
-            transform: scale(1.02);
-        }
-        .login-error {
-            color: #c0392b;
-            font-size: 13px;
-            margin-top: 10px;
-            display: none;
-            background: rgba(192,57,43,0.1);
-            padding: 8px;
-            border-radius: 10px;
-        }
+        .login-btn:hover { background: #c25f5f; transform: scale(1.02); }
+        .login-error { color: #c0392b; font-size: 13px; margin-top: 10px; display: none; background: rgba(192,57,43,0.1); padding: 8px; border-radius: 10px; }
         .login-error.show { display: block; }
-        .login-success {
-            color: #27ae60;
-            font-size: 13px;
-            margin-top: 10px;
-            display: none;
-            background: rgba(39,174,96,0.1);
-            padding: 8px;
-            border-radius: 10px;
-        }
+        .login-success { color: #27ae60; font-size: 13px; margin-top: 10px; display: none; background: rgba(39,174,96,0.1); padding: 8px; border-radius: 10px; }
         .login-success.show { display: block; }
 
         .google-btn {
@@ -154,46 +113,15 @@
             justify-content: center;
             gap: 10px;
         }
-        .google-btn:hover {
-            background: #f5ebe5;
-            transform: scale(1.02);
-        }
-        .google-btn img {
-            width: 22px;
-            height: 22px;
-        }
+        .google-btn:hover { background: #f5ebe5; transform: scale(1.02); }
+        .google-btn img { width: 22px; height: 22px; }
 
-        .divider {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin: 16px 0;
-            color: #888;
-            font-size: 13px;
-        }
-        .divider::before,
-        .divider::after {
-            content: '';
-            flex: 1;
-            height: 1px;
-            background: #ddd;
-        }
+        .divider { display: flex; align-items: center; gap: 10px; margin: 16px 0; color: #888; font-size: 13px; }
+        .divider::before, .divider::after { content: ''; flex: 1; height: 1px; background: #ddd; }
 
-        .register-link {
-            color: #7a5a52;
-            font-size: 14px;
-            margin-top: 14px;
-        }
-        .register-link a {
-            color: #d67a7a;
-            text-decoration: none;
-            font-weight: bold;
-            transition: 0.3s;
-        }
-        .register-link a:hover {
-            color: #3d2c2a;
-            text-decoration: underline;
-        }
+        .register-link { color: #7a5a52; font-size: 14px; margin-top: 14px; }
+        .register-link a { color: #d67a7a; text-decoration: none; font-weight: bold; transition: 0.3s; }
+        .register-link a:hover { color: #3d2c2a; text-decoration: underline; }
 
         /* ===== نافذة إدخال البيانات بعد جوجل ===== */
         #profileModal {
@@ -228,17 +156,8 @@
             padding: 8px;
             border: 3px solid #0a0a0a;
         }
-        .profile-box h2 {
-            font-size: 24px;
-            margin-bottom: 8px;
-            color: #3d2c2a;
-            font-weight: 800;
-        }
-        .profile-box .subtitle {
-            color: #0b0b0b;
-            margin-bottom: 20px;
-            font-size: 14px;
-        }
+        .profile-box h2 { font-size: 24px; margin-bottom: 8px; color: #3d2c2a; font-weight: 800; }
+        .profile-box .subtitle { color: #0b0b0b; margin-bottom: 20px; font-size: 14px; }
         .profile-box input {
             width: 100%;
             padding: 14px 20px;
@@ -252,13 +171,8 @@
             transition: 0.3s;
             text-align: right;
         }
-        .profile-box input:focus {
-            border-color: #d67a7a;
-            background: #fdf6f0;
-        }
-        .profile-box input::placeholder {
-            color: #b59588;
-        }
+        .profile-box input:focus { border-color: #d67a7a; background: #fdf6f0; }
+        .profile-box input::placeholder { color: #b59588; }
         .profile-box .profile-btn {
             width: 100%;
             padding: 14px;
@@ -272,10 +186,7 @@
             transition: 0.3s;
             margin-top: 6px;
         }
-        .profile-box .profile-btn:hover {
-            background: #c25f5f;
-            transform: scale(1.02);
-        }
+        .profile-box .profile-btn:hover { background: #c25f5f; transform: scale(1.02); }
         .profile-box .skip-btn {
             background: transparent;
             color: #7a5a52;
@@ -289,11 +200,9 @@
             transition: 0.3s;
             margin-top: 10px;
         }
-        .profile-box .skip-btn:hover {
-            background: #f5ebe5;
-            transform: scale(1.02);
-        }
+        .profile-box .skip-btn:hover { background: #f5ebe5; transform: scale(1.02); }
 
+        /* ===== الهيدر ===== */
         header {
             position: sticky;
             top: 0;
@@ -307,22 +216,9 @@
             box-shadow: 0 2px 12px rgba(10,10,10,0.3);
             z-index: 1000;
         }
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 26px;
-            font-weight: bold;
-            color: #fdf6f0;
-        }
-        .logo img {
-            height: 40px;
-            width: auto;
-            border-radius: 8px;
-        }
-        .search-box {
-            width: 45%;
-        }
+        .logo { display: flex; align-items: center; gap: 8px; font-size: 26px; font-weight: bold; color: #fdf6f0; }
+        .logo img { height: 40px; width: auto; border-radius: 8px; }
+        .search-box { width: 45%; }
         .search-box input {
             width: 100%;
             height: 44px;
@@ -334,15 +230,8 @@
             font-size: 15px;
             color: #3d2c2a;
         }
-        .search-box input:focus {
-            background: #fff;
-            box-shadow: 0 0 0 3px #d67a7a;
-        }
-        .header-buttons {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
+        .search-box input:focus { background: #fff; box-shadow: 0 0 0 3px #d67a7a; }
+        .header-buttons { display: flex; align-items: center; gap: 10px; }
         .header-buttons button {
             background: #d67a7a;
             color: #fff;
@@ -354,10 +243,7 @@
             transition: .3s;
             font-size: 13px;
         }
-        .header-buttons button:hover {
-            background: #c25f5f;
-            transform: translateY(-2px);
-        }
+        .header-buttons button:hover { background: #c25f5f; transform: translateY(-2px); }
         .header-buttons .user-email {
             color: #ecd9cf;
             font-size: 12px;
@@ -374,15 +260,10 @@
             gap: 6px;
             padding: 6px 14px !important;
         }
-        .account-btn:hover {
-            background: #3d3d3d !important;
-        }
-        .account-btn img {
-            width: 18px;
-            height: 18px;
-            border-radius: 50%;
-        }
+        .account-btn:hover { background: #3d3d3d !important; }
+        .account-btn img { width: 18px; height: 18px; border-radius: 50%; }
 
+        /* ===== الهيرو ===== */
         .hero {
             width: 100%;
             height: 380px;
@@ -395,34 +276,13 @@
             justify-content: center;
             text-align: center;
         }
-        .hero h1 {
-            font-size: 44px;
-            margin-bottom: 12px;
-            color: #090909;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-        }
-        .hero p {
-            font-size: 20px;
-            color: #070707;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
-        }
+        .hero h1 { font-size: 44px; margin-bottom: 12px; color: #090909; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
+        .hero p { font-size: 20px; color: #070707; text-shadow: 1px 1px 3px rgba(0,0,0,0.4); }
 
-        .categories-section {
-            max-width: 1400px;
-            margin: 30px auto;
-            padding: 0 20px;
-        }
-        .categories-section h2 {
-            color: #0d0d0d;
-            font-size: 28px;
-            text-align: center;
-            margin-bottom: 25px;
-        }
-        .categories-grid {
-            display: grid;
-            grid-template-columns: repeat(4,1fr);
-            gap: 20px;
-        }
+        /* ===== التصنيفات ===== */
+        .categories-section { max-width: 1400px; margin: 30px auto; padding: 0 20px; }
+        .categories-section h2 { color: #0d0d0d; font-size: 28px; text-align: center; margin-bottom: 25px; }
+        .categories-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 20px; }
         .category-card {
             background: #fdf6f0;
             border-radius: 18px;
@@ -433,22 +293,11 @@
             text-align: center;
             border: 2px solid #ecd9cf;
         }
-        .category-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(214,122,122,0.35);
-            border-color: #d67a7a;
-        }
-        .category-card img {
-            width: 100%;
-            height: 220px;
-            object-fit: cover;
-        }
-        .category-card h3 {
-            color: #3d2c2a;
-            padding: 12px;
-            font-size: 18px;
-        }
+        .category-card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(214,122,122,0.35); border-color: #d67a7a; }
+        .category-card img { width: 100%; height: 220px; object-fit: cover; }
+        .category-card h3 { color: #3d2c2a; padding: 12px; font-size: 18px; }
 
+        /* ===== المنتجات ===== */
         #productsContainer {
             max-width: 1400px;
             margin: auto;
@@ -465,46 +314,14 @@
             box-shadow: 0 6px 18px rgba(214,122,122,0.2);
             border: 1px solid #ecd9cf;
         }
-        .product-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(214,122,122,0.3);
-            border-color: #d67a7a;
-        }
-        .product-card img {
-            width: 100%;
-            height: 200px;
-            object-fit: contain;
-            background: #fff;
-        }
-        .product-info {
-            padding: 16px;
-        }
-        .product-info h3 {
-            font-size: 17px;
-            margin-bottom: 6px;
-            color: #3d2c2a;
-        }
-        .price-container {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            flex-wrap: wrap;
-        }
-        .current-price {
-            font-size: 17px;
-            font-weight: bold;
-            color: #3d2c2a;
-        }
-        .old-price {
-            font-size: 13px;
-            color: #999;
-            text-decoration: line-through;
-        }
-        .discount-badge {
-            font-size: 12px;
-            color: #27ae60;
-            font-weight: bold;
-        }
+        .product-card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(214,122,122,0.3); border-color: #d67a7a; }
+        .product-card img { width: 100%; height: 200px; object-fit: contain; background: #fff; }
+        .product-info { padding: 16px; }
+        .product-info h3 { font-size: 17px; margin-bottom: 6px; color: #3d2c2a; }
+        .price-container { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+        .current-price { font-size: 17px; font-weight: bold; color: #3d2c2a; }
+        .old-price { font-size: 13px; color: #999; text-decoration: line-through; }
+        .discount-badge { font-size: 12px; color: #27ae60; font-weight: bold; }
         .add-to-cart-btn {
             width: 100%;
             background: #d67a7a;
@@ -517,16 +334,8 @@
             transition: .3s;
             margin-top: 8px;
         }
-        .add-to-cart-btn:hover {
-            background: #c25f5f;
-            transform: scale(1.02);
-        }
-        .size-container {
-            display: flex;
-            gap: 6px;
-            flex-wrap: wrap;
-            margin: 8px 0 4px;
-        }
+        .add-to-cart-btn:hover { background: #c25f5f; transform: scale(1.02); }
+        .size-container { display: flex; gap: 6px; flex-wrap: wrap; margin: 8px 0 4px; }
         .size-btn {
             background: #fdf6f0;
             border: 2px solid #d67a7a;
@@ -541,11 +350,8 @@
             text-align: center;
         }
         .size-btn:hover { background: #ecd9cf; }
-        .size-btn.selected {
-            background: #d67a7a;
-            color: #fff;
-            border-color: #d67a7a;
-        }
+        .size-btn.selected { background: #d67a7a; color: #fff; border-color: #d67a7a; }
+
         .back-btn {
             display: inline-block;
             margin: 20px 30px;
@@ -559,11 +365,9 @@
             font-weight: bold;
             transition: .3s;
         }
-        .back-btn:hover {
-            background: #c25f5f;
-            transform: scale(1.05);
-        }
+        .back-btn:hover { background: #c25f5f; transform: scale(1.05); }
 
+        /* ===== السلة ===== */
         .overlay {
             position: fixed;
             inset: 0;
@@ -590,50 +394,16 @@
             z-index: 1000;
         }
         .cart-sidebar.open { left: 0; }
-        .cart-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 18px;
-            border-bottom: 2px solid #d67a7a;
-        }
+        .cart-header { display: flex; justify-content: space-between; align-items: center; padding: 18px; border-bottom: 2px solid #d67a7a; }
         .cart-header h2 { font-size: 20px; color: #3d2c2a; }
-        .cart-header button {
-            border: none;
-            background: none;
-            font-size: 24px;
-            cursor: pointer;
-            color: #3d2c2a;
-        }
-        #cartItems {
-            flex: 1;
-            overflow: auto;
-            padding: 16px;
-        }
-        .cart-item {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 14px;
-            border-bottom: 1px solid #ecd9cf;
-            padding-bottom: 12px;
-            align-items: center;
-        }
-        .cart-item img {
-            width: 60px;
-            height: 60px;
-            object-fit: contain;
-            border-radius: 8px;
-            background: #fff;
-        }
+        .cart-header button { border: none; background: none; font-size: 24px; cursor: pointer; color: #3d2c2a; }
+        #cartItems { flex: 1; overflow: auto; padding: 16px; }
+        .cart-item { display: flex; gap: 10px; margin-bottom: 14px; border-bottom: 1px solid #ecd9cf; padding-bottom: 12px; align-items: center; }
+        .cart-item img { width: 60px; height: 60px; object-fit: contain; border-radius: 8px; background: #fff; }
         .cart-item-info { flex: 1; }
         .cart-item-info h4 { font-size: 15px; margin-bottom: 2px; color: #3d2c2a; }
         .cart-item-price { color: #3d2c2a; font-weight: bold; font-size: 14px; }
-        .qty-box {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            margin-top: 6px;
-        }
+        .qty-box { display: flex; align-items: center; gap: 8px; margin-top: 6px; }
         .qty-box button {
             width: 26px;
             height: 26px;
@@ -647,18 +417,8 @@
         }
         .qty-box button:hover { background: #c25f5f; }
         .qty-box span { color: #3d2c2a; font-weight: bold; font-size: 15px; }
-        .remove-item {
-            color: #c0392b;
-            cursor: pointer;
-            font-size: 18px;
-            background: none;
-            border: none;
-            padding: 0 4px;
-        }
-        .cart-footer {
-            border-top: 1px solid #ecd9cf;
-            padding: 16px;
-        }
+        .remove-item { color: #c0392b; cursor: pointer; font-size: 18px; background: none; border: none; padding: 0 4px; }
+        .cart-footer { border-top: 1px solid #ecd9cf; padding: 16px; }
         .checkout-btn {
             width: 100%;
             border: none;
@@ -685,6 +445,7 @@
         }
         .clear-cart-btn:hover { background: #a93226; }
 
+        /* ===== الإشعارات ===== */
         .notification {
             position: fixed;
             bottom: 25px;
@@ -703,6 +464,7 @@
         }
         .notification.show { opacity: 1; transform: translateY(0); }
 
+        /* ===== نموذج الشراء ===== */
         .privacy-modal {
             position: fixed;
             inset: 0;
@@ -732,20 +494,9 @@
             border-radius: 20px 20px 0 0;
         }
         .privacy-modal-header h2 { color: #fdf6f0; font-size: 20px; }
-        .privacy-modal-header button {
-            background: none;
-            border: none;
-            font-size: 26px;
-            cursor: pointer;
-            color: #fdf6f0;
-        }
+        .privacy-modal-header button { background: none; border: none; font-size: 26px; cursor: pointer; color: #fdf6f0; }
         .privacy-modal-body { padding: 20px; line-height: 2; color: #3d2c2a; }
-        .checkout-box {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            width: 100%;
-        }
+        .checkout-box { display: flex; flex-direction: column; gap: 12px; width: 100%; }
         .checkout-box label { font-weight: bold; font-size: 14px; color: #3d2c2a; }
         .checkout-box input {
             padding: 10px 14px;
@@ -758,15 +509,8 @@
             outline: none;
         }
         .checkout-box input:focus { border-color: #d67a7a; }
-        .checkout-box input:read-only {
-            background: #f5ebe5;
-            cursor: default;
-        }
-        .location-btn-group {
-            display: flex;
-            gap: 8px;
-            flex-wrap: wrap;
-        }
+        .checkout-box input:read-only { background: #f5ebe5; cursor: default; }
+        .location-btn-group { display: flex; gap: 8px; flex-wrap: wrap; }
         .location-btn-group input { flex: 1; min-width: 140px; }
         .location-btn {
             padding: 10px 14px;
@@ -786,6 +530,7 @@
         .location-btn.map:hover { background: #5a403c; }
         .location-hint { color: #888; font-size: 11px; display: block; margin-top: 4px; }
 
+        /* ===== الفوتر ===== */
         footer {
             background: #0e0e0e;
             color: #fcf9f8;
@@ -794,13 +539,7 @@
             border-top: 2px solid #d67a7a;
         }
         footer p { text-align: center; margin-bottom: 16px; }
-        footer div {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-            align-items: center;
-        }
+        footer div { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; align-items: center; }
         footer a {
             color: #fcf8f7;
             text-decoration: none;
@@ -848,6 +587,7 @@
                 <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google" />
                 تسجيل الدخول بـ Google
             </button>
+            <div id="googleError" class="login-error"></div>
             
             <div class="divider">أو</div>
             
@@ -873,6 +613,7 @@
                 <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google" />
                 التسجيل بـ Google
             </button>
+            <div id="googleRegisterError" class="login-error"></div>
             
             <div class="divider">أو</div>
             
@@ -1029,7 +770,9 @@
     </div>
 
     <script>
-        // ===== تهيئة Firebase =====
+        // ============================================================
+        // 1. تهيئة Firebase
+        // ============================================================
         const firebaseConfig = {
             apiKey: "AIzaSyD6UTwGO8_Rg8gtiGYcWMIC8T4aT0riMHw",
             authDomain: "jojo-charm.firebaseapp.com",
@@ -1045,7 +788,9 @@
         const provider = new firebase.auth.GoogleAuthProvider();
         provider.setCustomParameters({ prompt: 'select_account' });
 
-        // ===== بيانات المنتجات =====
+        // ============================================================
+        // 2. بيانات المنتجات
+        // ============================================================
         const productsData = [{
             id: 1,
             name: "شورت رجالي صيفي",
@@ -1153,9 +898,11 @@
             image: "https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=400"
         }];
 
+        // ============================================================
+        // 3. المتغيرات العامة
+        // ============================================================
         let cart = JSON.parse(localStorage.getItem('cart')) || [];
         let selectedSizes = {};
-        let currentCategory = 'الكل';
         let autoRotateIntervals = {};
         let isDragging = false;
         let dragStartX = 0;
@@ -1163,13 +910,15 @@
         let currentUser = null;
         let userProfile = JSON.parse(localStorage.getItem('userProfile')) || {};
 
-        // ===== دوال العرض =====
+        // ============================================================
+        // 4. دوال العرض والمنتجات
+        // ============================================================
         function displayProducts(productsToDisplay) {
             const container = document.getElementById('productsContainer');
             if (!container) return;
             container.innerHTML = '';
             if (productsToDisplay.length === 0) {
-                container.innerHTML = `<div style="grid-column:1/-1;text-align:center;padding:50px 20px;color:#888;"></div>`;
+                container.innerHTML = `<div style="grid-column:1/-1;text-align:center;padding:50px 20px;color:#888;">لا توجد منتجات</div>`;
                 return;
             }
             productsToDisplay.forEach(product => {
@@ -1226,6 +975,7 @@
             });
         }
 
+        // ===== دوال 360 =====
         window.startDrag = function(e, id) { isDragging = true; dragStartX = e.clientX; stopAutoRotate(id); };
         window.startDragTouch = function(e, id) { const t = e.touches[0]; isDragging = true; dragStartX = t.clientX; stopAutoRotate(id); };
         window.dragRotate = function(e, id) {
@@ -1276,15 +1026,14 @@
 
         function stopAutoRotate(id) { clearInterval(autoRotateIntervals[id]); }
 
+        // ===== دوال التصفية =====
         window.filterByCategory = function(category) {
-            currentCategory = category;
             const filtered = productsData.filter(p => p.category === category);
             displayProducts(filtered);
             document.getElementById('categoriesSection').style.display = 'none';
             document.getElementById('backButtonContainer').style.display = 'block';
         };
         window.showAllProducts = function() {
-            currentCategory = 'الكل';
             displayProducts([]);
             document.getElementById('categoriesSection').style.display = 'block';
             document.getElementById('backButtonContainer').style.display = 'none';
@@ -1299,6 +1048,7 @@
             document.getElementById('backButtonContainer').style.display = filtered.length > 0 ? 'block' : 'none';
         };
 
+        // ===== دوال المقاس =====
         window.selectSize = function(id, size) {
             selectedSizes[id] = size;
             const container = document.getElementById(`sizeContainer-${id}`);
@@ -1310,6 +1060,9 @@
             }
         };
 
+        // ============================================================
+        // 5. دوال العربة
+        // ============================================================
         window.addToCart = function(id) {
             const product = productsData.find(p => p.id === id);
             if (!product) return;
@@ -1393,30 +1146,29 @@
                 showNotification("🗑️ تم تفريغ العربة");
             }
         };
-
         window.toggleCart = function() {
             document.getElementById('cartSidebar').classList.toggle('open');
             document.getElementById('overlay').classList.toggle('show');
             if (document.getElementById('cartSidebar').classList.contains('open')) renderCart();
         };
 
+        // ============================================================
+        // 6. دوال الموقع
+        // ============================================================
         window.getLocation = function() {
             if (!navigator.geolocation) { alert("المتصفح لا يدعم تحديد الموقع."); return; }
             const input = document.getElementById('clientLocation');
             input.value = '⏳ جاري جلب الموقع...';
             navigator.geolocation.getCurrentPosition(
                 pos => {
-                    const lat = pos.coords.latitude,
-                        lng = pos.coords.longitude;
+                    const lat = pos.coords.latitude, lng = pos.coords.longitude;
                     fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lng}&zoom=18`)
                         .then(r => r.json())
-                        .then(data => { input.value = data.display_name || `${lat}, ${lng}`;
-                            showNotification('✅ تم تحديد الموقع!'); })
-                        .catch(() => { input.value = `${lat}, ${lng}`;
-                            showNotification('✅ تم تحديد الموقع (إحداثيات)'); });
+                        .then(data => { input.value = data.display_name || `${lat}, ${lng}`; showNotification('✅ تم تحديد الموقع!'); })
+                        .catch(() => { input.value = `${lat}, ${lng}`; showNotification('✅ تم تحديد الموقع (إحداثيات)'); });
                 },
-                () => { input.value = '';
-                    alert('⚠️ فشل جلب الموقع. اكتبه يدوياً.'); }, { enableHighAccuracy: true, timeout: 8000 }
+                () => { input.value = ''; alert('⚠️ فشل جلب الموقع. اكتبه يدوياً.'); },
+                { enableHighAccuracy: true, timeout: 8000 }
             );
         };
         window.openMapPicker = function() {
@@ -1425,37 +1177,38 @@
             document.getElementById('clientLocation').focus();
         };
 
-        // ===== دوال جوجل مع نافذة إدخال البيانات =====
+        // ============================================================
+        // 7. دوال تسجيل الدخول بجوجل (مُصلحة)
+        // ============================================================
         function showProfileModal(user) {
             document.getElementById('profileModal').classList.add('open');
-            // تعبئة البريد تلقائياً
-            document.getElementById('profileName').value = user.displayName || '';
-            // إذا كان هناك بيانات محفوظة مسبقاً
-            if (userProfile.name) {
-                document.getElementById('profileName').value = userProfile.name;
-            }
-            if (userProfile.phone) {
-                document.getElementById('profilePhone').value = userProfile.phone;
-            }
+            document.getElementById('profileName').value = user.displayName || userProfile.name || '';
+            document.getElementById('profilePhone').value = userProfile.phone || '';
         }
 
         function saveUserProfile() {
             const name = document.getElementById('profileName').value.trim();
             const phone = document.getElementById('profilePhone').value.trim();
-            
             if (name) userProfile.name = name;
             if (phone) userProfile.phone = phone;
             localStorage.setItem('userProfile', JSON.stringify(userProfile));
-            
-            // تحديث حقول العميل
             document.getElementById('clientName').value = userProfile.name || '';
             document.getElementById('clientPhone').value = userProfile.phone || '';
-            
             document.getElementById('profileModal').classList.remove('open');
             showNotification('✅ تم حفظ بياناتك بنجاح!');
         }
 
         function handleGoogleLogin() {
+            const errorEl = document.getElementById('googleError');
+            errorEl.classList.remove('show');
+            errorEl.textContent = '';
+
+            if (!firebase.apps.length) {
+                errorEl.textContent = '⚠️ Firebase لم يتم تحميله بشكل صحيح. تأكد من اتصال الإنترنت.';
+                errorEl.classList.add('show');
+                return;
+            }
+
             auth.signInWithPopup(provider)
                 .then((result) => {
                     const user = result.user;
@@ -1463,24 +1216,41 @@
                     document.getElementById('userEmailDisplay').textContent = user.email || 'مستخدم';
                     document.getElementById('accountBtnText').textContent = user.displayName || 'حسابي';
                     document.getElementById('loginScreen').classList.add('hidden');
-                    
-                    // عرض نافذة إدخال البيانات
                     showProfileModal(user);
+                    showNotification('✅ تم تسجيل الدخول بنجاح!');
                 })
                 .catch((error) => {
-                    console.error('خطأ في تسجيل الدخول بجوجل:', error);
+                    console.error('❌ خطأ جوجل:', error.code, error.message);
                     let msg = '⚠️ فشل تسجيل الدخول بجوجل';
-                    if (error.code === 'auth/popup-blocked') {
-                        msg = '⚠️ تم حظر النافذة المنبثقة. يرجى السماح بالنوافذ المنبثقة لهذا الموقع.';
-                    } else if (error.code === 'auth/popup-closed-by-user') {
-                        msg = '⚠️ تم إغلاق النافذة قبل إتمام تسجيل الدخول. حاول مرة أخرى.';
+                    switch (error.code) {
+                        case 'auth/popup-blocked':
+                            msg = '⚠️ تم حظر النافذة المنبثقة. يرجى السماح بالنوافذ المنبثقة لهذا الموقع ثم حاول مرة أخرى.';
+                            break;
+                        case 'auth/popup-closed-by-user':
+                            msg = '⚠️ تم إغلاق النافذة قبل إتمام تسجيل الدخول. حاول مرة أخرى.';
+                            break;
+                        case 'auth/unauthorized-domain':
+                            msg = '⚠️ هذا النطاق غير مسموح به في Firebase. أضف النطاق في الإعدادات.';
+                            break;
+                        case 'auth/operation-not-allowed':
+                            msg = '⚠️ تسجيل الدخول بجوجل غير مفعّل. فعّله من Firebase Console.';
+                            break;
+                        case 'auth/network-request-failed':
+                            msg = '⚠️ مشكلة في الاتصال بالإنترنت. تأكد من اتصالك بالشبكة.';
+                            break;
+                        default:
+                            msg = `⚠️ خطأ: ${error.message}`;
                     }
-                    document.getElementById('loginError').textContent = msg;
-                    document.getElementById('loginError').classList.add('show');
+                    errorEl.textContent = msg;
+                    errorEl.classList.add('show');
                 });
         }
 
         function handleGoogleRegister() {
+            const errorEl = document.getElementById('googleRegisterError');
+            errorEl.classList.remove('show');
+            errorEl.textContent = '';
+
             auth.signInWithPopup(provider)
                 .then((result) => {
                     const user = result.user;
@@ -1489,24 +1259,47 @@
                     document.getElementById('accountBtnText').textContent = user.displayName || 'حسابي';
                     document.getElementById('registerScreen').style.display = 'none';
                     document.getElementById('loginScreen').classList.add('hidden');
-                    
-                    // عرض نافذة إدخال البيانات
                     showProfileModal(user);
+                    showNotification('✅ تم التسجيل بنجاح!');
                 })
                 .catch((error) => {
-                    console.error('خطأ في التسجيل بجوجل:', error);
+                    console.error('❌ خطأ تسجيل جوجل:', error.code, error.message);
                     let msg = '⚠️ فشل التسجيل بجوجل';
-                    if (error.code === 'auth/popup-blocked') {
-                        msg = '⚠️ تم حظر النافذة المنبثقة. يرجى السماح بالنوافذ المنبثقة لهذا الموقع.';
-                    } else if (error.code === 'auth/popup-closed-by-user') {
-                        msg = '⚠️ تم إغلاق النافذة قبل إتمام التسجيل. حاول مرة أخرى.';
+                    switch (error.code) {
+                        case 'auth/popup-blocked':
+                            msg = '⚠️ تم حظر النافذة المنبثقة. يرجى السماح بالنوافذ المنبثقة لهذا الموقع.';
+                            break;
+                        case 'auth/popup-closed-by-user':
+                            msg = '⚠️ تم إغلاق النافذة قبل إتمام التسجيل. حاول مرة أخرى.';
+                            break;
+                        case 'auth/unauthorized-domain':
+                            msg = '⚠️ هذا النطاق غير مسموح به في Firebase. أضف النطاق في الإعدادات.';
+                            break;
+                        case 'auth/operation-not-allowed':
+                            msg = '⚠️ تسجيل الدخول بجوجل غير مفعّل في Firebase.';
+                            break;
+                        default:
+                            msg = `⚠️ خطأ: ${error.message}`;
                     }
-                    document.getElementById('registerError').textContent = msg;
-                    document.getElementById('registerError').classList.add('show');
+                    errorEl.textContent = msg;
+                    errorEl.classList.add('show');
                 });
         }
 
-        // ===== دوال المصادقة =====
+        // ============================================================
+        // 8. ربط الأزرار
+        // ============================================================
+        document.getElementById('googleLoginBtn').addEventListener('click', handleGoogleLogin);
+        document.getElementById('googleRegisterBtn').addEventListener('click', handleGoogleRegister);
+        document.getElementById('saveProfileBtn').addEventListener('click', saveUserProfile);
+        document.getElementById('skipProfileBtn').addEventListener('click', function() {
+            document.getElementById('profileModal').classList.remove('open');
+            showNotification('⏭️ يمكنك إدخال البيانات لاحقاً');
+        });
+
+        // ============================================================
+        // 9. دوال المصادقة
+        // ============================================================
         window.openAccount = function() {
             if (currentUser) {
                 showNotification('👤 ' + (currentUser.displayName || currentUser.email || 'مستخدم'));
@@ -1528,6 +1321,22 @@
             document.getElementById('loginSuccess').classList.remove('show');
         };
 
+        window.handleLogout = function() {
+            if (confirm('تسجيل الخروج؟')) {
+                auth.signOut().then(() => {
+                    currentUser = null;
+                    document.getElementById('loginScreen').classList.remove('hidden');
+                    document.getElementById('userEmailDisplay').textContent = 'زائر';
+                    document.getElementById('accountBtnText').textContent = 'حسابي';
+                    showNotification('👋 تم تسجيل الخروج');
+                    if (document.getElementById('cartSidebar').classList.contains('open')) toggleCart();
+                });
+            }
+        };
+
+        // ============================================================
+        // 10. دوال البريد الإلكتروني
+        // ============================================================
         document.getElementById('loginBtn').addEventListener('click', function() {
             const email = document.getElementById('loginEmail').value.trim();
             const password = document.getElementById('loginPassword').value.trim();
@@ -1617,7 +1426,9 @@
                 });
         });
 
-        // ===== مراقبة حالة المستخدم =====
+        // ============================================================
+        // 11. مراقبة حالة المستخدم
+        // ============================================================
         auth.onAuthStateChanged((user) => {
             if (user) {
                 currentUser = user;
@@ -1641,31 +1452,9 @@
             }
         });
 
-        window.handleLogout = function() {
-            if (confirm('تسجيل الخروج؟')) {
-                auth.signOut().then(() => {
-                    currentUser = null;
-                    document.getElementById('loginScreen').classList.remove('hidden');
-                    document.getElementById('userEmailDisplay').textContent = 'زائر';
-                    document.getElementById('accountBtnText').textContent = 'حسابي';
-                    showNotification('👋 تم تسجيل الخروج');
-                    if (document.getElementById('cartSidebar').classList.contains('open')) toggleCart();
-                });
-            }
-        };
-
-        // ===== أزرار جوجل =====
-        document.getElementById('googleLoginBtn').addEventListener('click', handleGoogleLogin);
-        document.getElementById('googleRegisterBtn').addEventListener('click', handleGoogleRegister);
-
-        // ===== أزرار نافذة الملف الشخصي =====
-        document.getElementById('saveProfileBtn').addEventListener('click', saveUserProfile);
-        document.getElementById('skipProfileBtn').addEventListener('click', function() {
-            document.getElementById('profileModal').classList.remove('open');
-            showNotification('⏭️ يمكنك إدخال البيانات لاحقاً عند إتمام الطلب');
-        });
-
-        // ===== دوال الإشعارات والشراء =====
+        // ============================================================
+        // 12. دوال الإشعارات والشراء
+        // ============================================================
         let notificationTimeout;
 
         function showNotification(msg) {
@@ -1686,7 +1475,6 @@
             document.getElementById('checkoutModal').classList.add('open');
             if (document.getElementById('cartSidebar').classList.contains('open')) toggleCart();
             
-            // تعبئة البيانات تلقائياً
             if (userProfile.name) document.getElementById('clientName').value = userProfile.name;
             if (userProfile.phone) document.getElementById('clientPhone').value = userProfile.phone;
             if (currentUser.email) document.getElementById('clientEmail').value = currentUser.email;
@@ -1706,12 +1494,10 @@
             if (!phone) { showNotification('⚠️ يرجى إدخال رقم الهاتف'); return; }
             if (!location) { showNotification('⚠️ يرجى إدخال العنوان'); return; }
 
-            // حفظ بيانات العميل
             userProfile.name = name;
             userProfile.phone = phone;
             localStorage.setItem('userProfile', JSON.stringify(userProfile));
 
-            // بناء رسالة الطلب
             let orderDetails = `🛒 طلب جديد من JoJo Charm\n`;
             orderDetails += `👤 الاسم: ${name}\n`;
             orderDetails += `📱 الهاتف: ${phone}\n`;
@@ -1725,12 +1511,10 @@
             });
             orderDetails += `\n💰 الإجمالي: ${total} ج.م`;
 
-            // فتح واتساب
             const phoneNumber = '201110580579';
             const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(orderDetails)}`;
             window.open(url, '_blank');
 
-            // تفريغ العربة بعد الطلب
             cart = [];
             localStorage.setItem("cart", JSON.stringify(cart));
             updateCartIconCount();
@@ -1739,25 +1523,16 @@
             showNotification('✅ تم إرسال الطلب بنجاح! سيتم التواصل معك قريباً.');
         };
 
-        // ===== بدء التطبيق =====
+        // ============================================================
+        // 13. بدء التطبيق
+        // ============================================================
         displayProducts([]);
         updateCartIconCount();
         renderCart();
 
-        // عند تحميل الصفحة، تحقق من حالة المستخدم
-        auth.onAuthStateChanged((user) => {
-            if (user) {
-                currentUser = user;
-                document.getElementById('userEmailDisplay').textContent = user.email || 'مستخدم';
-                document.getElementById('accountBtnText').textContent = user.displayName || 'حسابي';
-                document.getElementById('loginScreen').classList.add('hidden');
-                if (userProfile.name) document.getElementById('clientName').value = userProfile.name;
-                if (userProfile.phone) document.getElementById('clientPhone').value = userProfile.phone;
-                document.getElementById('clientEmail').value = user.email || '';
-            }
-        });
-
-        console.log('🛍️ JoJo Charm متجر جاهز للتسوق!');
+        console.log('🛍️ JoJo Charm جاهز!');
+        console.log('📍 النطاق الحالي:', window.location.hostname);
+        console.log('🔑 تأكد من إضافة هذا النطاق في Firebase → Authentication → Settings → Authorized domains');
     </script>
 </body>
 </html>
