@@ -819,22 +819,21 @@
     <script>
         // ============================================================
         // 1. تهيئة Firebase
-        // ============================================================
-        const firebaseConfig = {
-            apiKey: "AIzaSyD6UTwGO8_Rg8gtiGYcWMIC8T4aT0riMHw",
-            authDomain: "jogo-a2b13.firebaseapp.com",
-            projectId: "jogo-a2b13",
-            storageBucket: "jogo-a2b13.firebasestorage.app",
-            messagingSenderId: "644783047610",
-            appId: "1:644783047610:web:186d3a21c618bb7c279383",
-            measurementId: "G-5QJ21EM2R5"
-        };
+        // ===========================================================
+    const firebaseConfig = {
+        apiKey: "AIzaSyD6UTwGO8_Rg8gtiGYcWMIC8T4aT0riMHw",
+        authDomain: "jojo-a2b13.firebaseapp.com",
+        projectId: "jojo-a2b13",
+        storageBucket: "jojo-a2b13.firebasestorage.app",
+        messagingSenderId: "644783047610",
+        appId: "1:644783047610:web:186d3a21c618bb7c279383",
+        measurementId: "G-5QJ21EM2R5"
+    };
 
-        firebase.initializeApp(firebaseConfig);
-        const auth = firebase.auth();
-        const provider = new firebase.auth.GoogleAuthProvider();
-        provider.setCustomParameters({ prompt: 'select_account' });
-
+    firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
+    const provider = new firebase.auth.GoogleAuthProvider();
+    provider.setCustomParameters({ prompt: 'select_account' });
         // ============================================================
         // 2. بيانات المنتجات (نفسها)
         // ============================================================
