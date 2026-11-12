@@ -14,14 +14,8 @@
 html { scroll-behavior: smooth; }
 body { background: #ffffff; color: #2b2320; }
 :root{
-  --ink:#2b2320;
-  --ink-soft:#4a3f3a;
-  --muted:#8c7b72;
-  --line:#e6dfd8;
-  --soft:#faf6f0;
-  --accent:#b8860b;
-  --accent-dark:#966a05;
-  --radius:16px;
+  --ink:#2b2320; --ink-soft:#4a3f3a; --muted:#8c7b72; --line:#e6dfd8; --soft:#faf6f0;
+  --accent:#b8860b; --accent-dark:#966a05; --radius:16px;
 }
 #loginScreen, #registerScreen { position: fixed; inset: 0; background: rgba(43,35,32,0.92); display: none; justify-content: center; align-items: center; z-index: 99999; backdrop-filter: blur(12px); }
 #loginScreen.show, #registerScreen.show { display: flex; }
@@ -32,6 +26,7 @@ body { background: #ffffff; color: #2b2320; }
 .login-box h2 span { color: var(--accent); }
 .login-box .subtitle { color:#8c7b72; margin-bottom: 20px; font-size: 14px; }
 .login-box input { width:100%; padding:14px 20px; margin-bottom:14px; border-radius:12px; border:2px solid #e6dfd8; background:#faf6f0; color:#2b2320; font-size:15px; outline:none; transition:.3s; text-align:right; }
+html[dir="ltr"] .login-box input { text-align:left; }
 .login-box input:focus { border-color: var(--accent); background:#fff; box-shadow:0 0 0 4px rgba(184,134,11,.15); }
 .login-btn { width:100%; padding:14px; background: var(--ink); color:#fff; border:none; border-radius:12px; font-weight:800; font-size:18px; cursor:pointer; transition:.3s; margin-top:6px; }
 .login-btn:hover { background: var(--accent); transform: translateY(-2px); box-shadow:0 8px 25px rgba(43,35,32,.2); }
@@ -46,6 +41,7 @@ body { background: #ffffff; color: #2b2320; }
 .login-success { color:#2e7d32; font-size:13px; margin-top:10px; display:none; background:rgba(46,125,50,.08); padding:10px; border-radius:10px; }
 .login-success.show { display:block; }
 .close-btn { position:absolute; top:12px; left:15px; background:none; border:none; font-size:26px; cursor:pointer; color:#2b2320; transition:.3s; }
+html[dir="ltr"] .close-btn { left:auto; right:15px; }
 .close-btn:hover { color:var(--accent); transform:scale(1.1); }
 .register-link { color:#8c7b72; font-size:14px; margin-top:15px; }
 .register-link a { color:var(--accent); text-decoration:none; font-weight:bold; }
@@ -57,22 +53,28 @@ header { position: sticky; top: 0; width: 100%; background: #fff; border-bottom:
 .cart-btn { grid-column: 3; justify-self: end; background:transparent; color:var(--ink); border:1px solid var(--line); padding:8px 12px; border-radius:50px; cursor:pointer; font-weight:700; transition:.25s; font-size:14px; display:flex; align-items:center; gap:6px; position:relative; }
 .cart-btn:hover { background: var(--ink); color:#fff; border-color:var(--ink); }
 .cart-badge { position:absolute; top:-8px; right:-8px; background:var(--accent); color:#fff; border-radius:50%; padding:2px 7px; font-size:11px; font-weight:bold; min-width:20px; text-align:center; }
+html[dir="ltr"] .cart-badge { right:auto; left:-8px; }
 .user-icon-btn { width:44px; height:44px; border-radius:50%; background:var(--ink); border:1px solid var(--ink); display:flex; align-items:center; justify-content:center; cursor:pointer; transition:.25s; font-size:20px; color:#fff; }
 .user-icon-btn:hover { background: var(--accent); border-color: var(--accent); transform:scale(1.05); }
 .user-dropdown { position:absolute; top:54px; right:0; background:#fff; border-radius:14px; width:260px; box-shadow:0 10px 25px rgba(43,35,32,.15); display:none; flex-direction:column; padding:10px; z-index:1001; border:1px solid var(--line); border-top:3px solid var(--accent); }
+html[dir="ltr"] .user-dropdown { right:auto; left:0; }
 .user-dropdown.show { display:flex; animation: fadeInUp .3s ease; }
 .user-dropdown .dropdown-email { color:#4a3f3a; font-size:13px; font-weight:700; text-align:center; padding:10px 5px; border-bottom:1px solid #e6dfd8; margin-bottom:8px; word-break:break-all; }
 .user-dropdown button { width:100%; padding:12px 15px; border-radius:8px; background:transparent; color:#4a3f3a; border:none; font-family:'Cairo',sans-serif; font-size:14px; font-weight:600; cursor:pointer; transition:.2s; text-align:right; display:flex; align-items:center; justify-content:flex-start; gap:10px; }
+html[dir="ltr"] .user-dropdown button { text-align:left; }
 .user-dropdown button:hover { background:#faf6f0; color:var(--ink); }
 .user-dropdown .logout-btn { color:#c0392b; border-top:1px solid #e6dfd8; margin-top:5px; padding-top:12px; border-radius:0 0 8px 8px; }
 .user-dropdown .logout-btn:hover { color:#922b21; background:#fdedec; }
+.lang-toggle-btn { color:var(--accent); border-top:1px solid #e6dfd8; margin-top:5px; padding-top:12px; font-weight:bold; }
 .header-search { width:100%; max-width:1400px; display:flex; align-items:center; background:#fff; border-radius:50px; overflow:hidden; border:2px solid var(--ink); margin-bottom: 14px; }
 .header-search input { flex:1; height:44px; border:none; outline:none; padding:0 22px; font-size:15px; color:#2b2320; background:transparent; }
 .header-search button { height:44px; padding:0 24px; background:var(--ink); border:none; color:#fff; font-weight:bold; cursor:pointer; transition:.3s; font-size:17px; }
 .header-search button:hover { background: var(--accent); }
+
+/* ===== السلايدر (تم إصلاحه) ===== */
 .hero-slider { position: relative; width: 100%; max-width: 1400px; height: 480px; margin: 20px auto; overflow: hidden; background: var(--accent); border-radius: var(--radius); }
-.slider-track { display: flex; height: 100%; transition: transform 0.5s ease-in-out; }
-.slide { min-width: 100%; height: 100%; position: relative; display: flex; align-items: center; justify-content: center; }
+.slider-track { display: flex; height: 100%; transition: transform 0.5s ease-in-out; flex-direction: row; direction: ltr; }
+.slide { min-width: 100%; width: 100%; flex-shrink: 0; height: 100%; position: relative; display: flex; align-items: center; justify-content: center; }
 .slide img { width: 100%; height: 100%; object-fit: cover; }
 .slide-overlay { position: absolute; inset: 0; background: linear-gradient(135deg, rgba(43,35,32,0.65), rgba(184,134,11,0.35)); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 20px; }
 .slide-overlay h1 { color: #fff; font-size: 48px; font-weight: 900; margin-bottom: 12px; text-shadow: 2px 2px 8px rgba(43,35,32,0.6); }
@@ -80,6 +82,7 @@ header { position: sticky; top: 0; width: 100%; background: #fff; border-bottom:
 .slider-dots { position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); display: flex; gap: 8px; z-index: 10; }
 .slider-dots .dot { width: 10px; height: 10px; border-radius: 50%; background: rgba(255,255,255,.5); cursor: pointer; transition: 0.3s; }
 .slider-dots .dot.active { background: var(--accent); transform: scale(1.2); }
+
 .shop-by-category { max-width: 1400px; margin: 40px auto; padding: 0 20px; text-align: center; }
 .shop-by-category h2 { font-size: 32px; font-weight: 900; color: var(--ink); margin-bottom: 30px; }
 .category-grid { display: flex; justify-content: center; align-items: flex-start; flex-wrap: wrap; gap: 40px; }
@@ -102,6 +105,7 @@ header { position: sticky; top: 0; width: 100%; background: #fff; border-bottom:
 .product-card .product-image-wrapper img { width:100%; height:270px; object-fit:contain; transition:.5s; padding:14px; }
 .product-card:hover .product-image-wrapper img { transform:scale(1.06); }
 .product-card .discount-badge { position:absolute; top:12px; right:12px; background:var(--ink); color:#fff; padding:5px 12px; border-radius:50px; font-size:12px; font-weight:800; z-index:5; }
+html[dir="ltr"] .product-card .discount-badge { right:auto; left:12px; }
 .product-card .product-info { padding: 16px 18px 18px; display:flex; flex-direction:column; gap:6px; flex:1; }
 .product-card .product-info h3 { font-size:15px; color:#2b2320; font-weight:700; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; height:48px; line-height:1.6; }
 .price-container { display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
@@ -114,7 +118,9 @@ header { position: sticky; top: 0; width: 100%; background: #fff; border-bottom:
 .overlay { position:fixed; inset:0; background:rgba(43,35,32,.5); opacity:0; visibility:hidden; transition:.3s; z-index:999; }
 .overlay.show { opacity:1; visibility:visible; }
 .cart-sidebar { position:fixed; top:0; right:-450px; width:420px; max-width:100%; height:100vh; background:#fff; display:flex; flex-direction:column; box-shadow:-10px 0 40px rgba(43,35,32,.2); transition:.4s cubic-bezier(.4,0,.2,1); z-index:1000; border-right:4px solid var(--accent); }
+html[dir="ltr"] .cart-sidebar { left:-450px; right:auto; border-left:4px solid var(--accent); border-right:none; }
 .cart-sidebar.open { right:0; }
+html[dir="ltr"] .cart-sidebar.open { left:0; }
 .cart-header { display:flex; justify-content:space-between; align-items:center; padding:18px 22px; border-bottom:1px solid var(--line); background:var(--soft); }
 .cart-header h2 { font-size:20px; color:#2b2320; font-weight:900; }
 .cart-header h2 span { color:var(--accent); }
@@ -144,9 +150,12 @@ header { position: sticky; top: 0; width: 100%; background: #fff; border-bottom:
 .clear-cart-btn { width:100%; margin-top:8px; border:none; background:#f0ece8; color:#2b2320; padding:12px; border-radius:12px; cursor:pointer; font-weight:600; transition:.3s; }
 .clear-cart-btn:hover { background:#e3dbd4; }
 .notification { position:fixed; bottom:30px; right:30px; background:var(--ink); color:#fff; padding:16px 26px; border-radius:12px; opacity:0; transform:translateY(100px); transition:.4s; z-index:9999; box-shadow:0 8px 30px rgba(43,35,32,.3); font-weight:600; max-width:400px; }
+html[dir="ltr"] .notification { right:auto; left:30px; }
 .notification.show { opacity:1; transform:translateY(0); }
 .notification.success { border-right:4px solid var(--accent); }
+html[dir="ltr"] .notification.success { border-right:none; border-left:4px solid var(--accent); }
 .notification.error { border-right:4px solid #c0392b; }
+html[dir="ltr"] .notification.error { border-right:none; border-left:4px solid #c0392b; }
 .privacy-modal { position:fixed; inset:0; display:none; justify-content:center; align-items:center; background:rgba(43,35,32,.6); z-index:2000; backdrop-filter:blur(6px); }
 .privacy-modal.open { display:flex; }
 .privacy-modal-content { width:90%; max-width:520px; max-height:90vh; overflow:auto; background:#fff; border-radius:20px; animation:fadeInUp .4s ease; border-top:4px solid var(--accent); }
@@ -159,6 +168,7 @@ header { position: sticky; top: 0; width: 100%; background: #fff; border-bottom:
 .checkout-box { display:flex; flex-direction:column; gap:12px; }
 .checkout-box label { font-weight:700; font-size:14px; color:#2b2320; }
 .checkout-box input { padding:12px 16px; border-radius:10px; border:2px solid #e6dfd8; background:#faf6f0; color:#2b2320; width:100%; font-size:15px; transition:.3s; outline:none; font-family:'Cairo',sans-serif; }
+html[dir="ltr"] .checkout-box input { text-align:left; }
 .checkout-box input:focus { border-color:var(--accent); background:#fff; box-shadow:0 0 0 4px rgba(184,134,11,.15); }
 .checkout-box input:read-only { background:#f0ece8; cursor:default; }
 .location-btn-group { display:flex; gap:8px; flex-wrap:wrap; }
@@ -175,6 +185,7 @@ header { position: sticky; top: 0; width: 100%; background: #fff; border-bottom:
 .profile-box h2 { font-size:24px; margin-bottom:8px; color:#2b2320; font-weight:900; }
 .profile-box .subtitle { color:#8c7b72; margin-bottom:20px; font-size:14px; }
 .profile-box input { width:100%; padding:14px 20px; margin-bottom:14px; border-radius:12px; border:2px solid #e6dfd8; background:#faf6f0; color:#2b2320; font-size:15px; outline:none; transition:0.3s; text-align:right; }
+html[dir="ltr"] .profile-box input { text-align:left; }
 .profile-box input:focus { border-color:var(--accent); background:#fff; box-shadow:0 0 0 4px rgba(184,134,11,.15); }
 .profile-box .profile-btn { width:100%; padding:14px; background:var(--ink); color:#fff; border:none; border-radius:12px; font-weight:800; font-size:17px; cursor:pointer; transition:0.3s; margin-top:6px; }
 .profile-box .profile-btn:hover { background:var(--accent); transform:translateY(-2px); }
@@ -187,6 +198,7 @@ footer .footer-content a { color:#d9d0c9; text-decoration:none; display:block; m
 footer .footer-content a:hover { color:var(--accent); }
 footer .footer-bottom { border-top:1px solid #3a302b; padding-top:18px; text-align:center; font-size:14px; }
 .back-to-top { position:fixed; bottom:30px; left:30px; background:var(--ink); color:#fff; border:none; width:48px; height:48px; border-radius:50%; font-size:22px; cursor:pointer; opacity:0; visibility:hidden; transition:.3s; box-shadow:0 4px 20px rgba(43,35,32,.2); z-index:999; }
+html[dir="ltr"] .back-to-top { left:auto; right:30px; }
 .back-to-top.show { opacity:1; visibility:visible; }
 .back-to-top:hover { background:var(--accent); transform:translateY(-4px); }
 .loading-spinner { display:none; text-align:center; padding:60px; grid-column:1/-1; }
@@ -226,12 +238,15 @@ footer .footer-bottom { border-top:1px solid #3a302b; padding-top:18px; text-ali
   .current-price { font-size:17px; }
   .add-to-cart-btn { font-size:13px; padding:10px; }
   .cart-sidebar { width:100%; right:-100%; }
+  html[dir="ltr"] .cart-sidebar { left:-100%; right:auto; }
   .section-head h2 { font-size:22px; }
   .login-box { padding:28px 20px; margin:15px; }
   .login-box .logo-img { width:70px; height:70px; }
   .login-box h2 { font-size:24px; }
   .back-to-top { width:42px; height:42px; font-size:18px; bottom:15px; left:15px; }
+  html[dir="ltr"] .back-to-top { right:15px; left:auto; }
   .notification { bottom:80px; right:15px; left:15px; font-size:13px; padding:12px 18px; }
+  html[dir="ltr"] .notification { right:15px; left:15px; }
   .product-details-info h1 { font-size:18px; }
   .product-details-info .price-row .current { font-size:24px; }
   footer { padding:30px 14px 18px; }
@@ -259,25 +274,24 @@ footer .footer-bottom { border-top:1px solid #3a302b; padding-top:18px; text-ali
 </style>
 </head>
 <body>
-
-<!-- ===== شاشة تسجيل الدخول ===== -->
+  <!-- ===== شاشة تسجيل الدخول ===== -->
 <div id="loginScreen">
     <div class="login-box">
         <button class="close-btn" onclick="closeLogin()">✕</button>
         <img src="https://i.imgpeek.com/iQ-BN-30gtNe" alt="JoJo Logo" class="logo-img">
         <h2><span>JoJo</span> Charm</h2>
-        <p class="subtitle">🔐 سجل الدخول لتأكيد الطلب</p>
+        <p class="subtitle" data-ar="🔐 سجل الدخول لتأكيد الطلب" data-en="🔐 Login to confirm your order">🔐 سجل الدخول لتأكيد الطلب</p>
         <button class="google-btn" onclick="handleGoogleLogin()">
             <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google">
-            تسجيل الدخول بـ Google
+            <span data-ar="تسجيل الدخول بـ Google" data-en="Login with Google">تسجيل الدخول بـ Google</span>
         </button>
-        <div class="divider">أو</div>
-        <input type="email" id="loginEmail" placeholder="✉️ البريد الإلكتروني">
-        <input type="password" id="loginPassword" placeholder="🔑 كلمة المرور">
-        <button class="login-btn" id="loginBtn" onclick="handleLogin()">دخول 🚀</button>
+        <div class="divider" data-ar="أو" data-en="OR">أو</div>
+        <input type="email" id="loginEmail" placeholder="✉️ البريد الإلكتروني" data-ar="✉️ البريد الإلكتروني" data-en="✉️ Email">
+        <input type="password" id="loginPassword" placeholder="🔑 كلمة المرور" data-ar="🔑 كلمة المرور" data-en="🔑 Password">
+        <button class="login-btn" id="loginBtn" onclick="handleLogin()" data-ar="دخول 🚀" data-en="Login 🚀">دخول 🚀</button>
         <div id="loginError" class="login-error"></div>
         <div id="loginSuccess" class="login-success"></div>
-        <div class="register-link">ليس لديك حساب؟ <a href="#" onclick="showRegister()">سجل الآن</a></div>
+        <div class="register-link" data-ar="ليس لديك حساب؟" data-en="Don't have an account?">ليس لديك حساب؟ <a href="#" onclick="showRegister()" data-ar="سجل الآن" data-en="Register Now">سجل الآن</a></div>
     </div>
 </div>
 
@@ -286,21 +300,21 @@ footer .footer-bottom { border-top:1px solid #3a302b; padding-top:18px; text-ali
     <div class="login-box">
         <button class="close-btn" onclick="closeRegister()">✕</button>
         <img src="https://i.imgpeek.com/iQ-BN-30gtNe" alt="JoJo Logo" class="logo-img">
-        <h2><span>📝 إنشاء حساب</span></h2>
-        <p class="subtitle">سجل الآن لتأكيد طلبك</p>
+        <h2><span data-ar="📝 إنشاء حساب" data-en="📝 Create Account">📝 إنشاء حساب</span></h2>
+        <p class="subtitle" data-ar="سجل الآن لتأكيد طلبك" data-en="Sign up now to confirm your order">سجل الآن لتأكيد طلبك</p>
         <button class="google-btn" onclick="handleGoogleLogin()">
             <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google">
-            التسجيل بـ Google
+            <span data-ar="التسجيل بـ Google" data-en="Register with Google">التسجيل بـ Google</span>
         </button>
-        <div class="divider">أو</div>
-        <input type="text" id="registerName" placeholder="👤 الاسم الكامل">
-        <input type="tel" id="registerPhone" placeholder="📱 رقم الهاتف">
-        <input type="email" id="registerEmail" placeholder="✉️ البريد الإلكتروني">
-        <input type="password" id="registerPassword" placeholder="🔑 كلمة المرور (6 أحرف)">
-        <button class="login-btn" id="registerBtn" onclick="handleRegister()">إنشاء حساب ✨</button>
+        <div class="divider" data-ar="أو" data-en="OR">أو</div>
+        <input type="text" id="registerName" placeholder="👤 الاسم الكامل" data-ar="👤 الاسم الكامل" data-en="👤 Full Name">
+        <input type="tel" id="registerPhone" placeholder="📱 رقم الهاتف" data-ar="📱 رقم الهاتف" data-en="📱 Phone Number">
+        <input type="email" id="registerEmail" placeholder="✉️ البريد الإلكتروني" data-ar="✉️ البريد الإلكتروني" data-en="✉️ Email">
+        <input type="password" id="registerPassword" placeholder="🔑 كلمة المرور (6 أحرف)" data-ar="🔑 كلمة المرور (6 أحرف)" data-en="🔑 Password (6 chars)">
+        <button class="login-btn" id="registerBtn" onclick="handleRegister()" data-ar="إنشاء حساب ✨" data-en="Create Account ✨">إنشاء حساب ✨</button>
         <div id="registerError" class="login-error"></div>
         <div id="registerSuccess" class="login-success"></div>
-        <div class="register-link">لديك حساب؟ <a href="#" onclick="showLogin()">تسجيل الدخول</a></div>
+        <div class="register-link" data-ar="لديك حساب؟" data-en="Already have an account?">لديك حساب؟ <a href="#" onclick="showLogin()" data-ar="تسجيل الدخول" data-en="Login">تسجيل الدخول</a></div>
     </div>
 </div>
 
@@ -309,12 +323,12 @@ footer .footer-bottom { border-top:1px solid #3a302b; padding-top:18px; text-ali
     <div class="profile-box">
         <button class="close-btn" onclick="closeProfileModal()">✕</button>
         <img src="https://i.imgpeek.com/iQ-BN-30gtNe" alt="JoJo Logo" class="logo-img">
-        <h2>👤 أكمل بياناتك</h2>
-        <p class="subtitle">يرجى إدخال اسمك ورقم هاتفك لتأكيد الطلبات</p>
-        <input type="text" id="profileName" placeholder="👤 الاسم الكامل">
-        <input type="tel" id="profilePhone" placeholder="📱 رقم الهاتف">
-        <button class="profile-btn" onclick="saveUserProfile()">✅ حفظ البيانات</button>
-        <button class="skip-btn" onclick="closeProfileModal()">⏭️ تخطي (سأدخلها لاحقاً)</button>
+        <h2 data-ar="👤 أكمل بياناتك" data-en="👤 Complete Your Profile">👤 أكمل بياناتك</h2>
+        <p class="subtitle" data-ar="يرجى إدخال اسمك ورقم هاتفك لتأكيد الطلبات" data-en="Please enter your name and phone to confirm orders">يرجى إدخال اسمك ورقم هاتفك لتأكيد الطلبات</p>
+        <input type="text" id="profileName" placeholder="👤 الاسم الكامل" data-ar="👤 الاسم الكامل" data-en="👤 Full Name">
+        <input type="tel" id="profilePhone" placeholder="📱 رقم الهاتف" data-ar="📱 رقم الهاتف" data-en="📱 Phone Number">
+        <button class="profile-btn" onclick="saveUserProfile()" data-ar="✅ حفظ البيانات" data-en="✅ Save Data">✅ حفظ البيانات</button>
+        <button class="skip-btn" onclick="closeProfileModal()" data-ar="⏭️ تخطي (سأدخلها لاحقاً)" data-en="⏭️ Skip (I'll enter later)">⏭️ تخطي (سأدخلها لاحقاً)</button>
     </div>
 </div>
 
@@ -327,10 +341,11 @@ footer .footer-bottom { border-top:1px solid #3a302b; padding-top:18px; text-ali
             <div class="user-menu-wrapper">
                 <div class="user-icon-btn" onclick="toggleUserMenu(event)">👤</div>
                 <div class="user-dropdown" id="userDropdown">
-                    <div class="dropdown-email" id="dropdownEmail">زائر</div>
-                    <button id="headerLoginBtn" onclick="showLogin()" style="display:flex;">🔐 تسجيل الدخول</button>
-                    <button id="accountBtn" onclick="openProfileModal(auth.currentUser)" style="display:none;">👤 حسابي</button>
-                    <button class="logout-btn" id="logoutBtn" onclick="handleLogout()" style="display:none;">🚪 تسجيل الخروج</button>
+                    <div class="dropdown-email" id="dropdownEmail" data-ar="زائر" data-en="Guest">زائر</div>
+                    <button id="headerLoginBtn" onclick="showLogin()" style="display:flex;" data-ar="🔐 تسجيل الدخول" data-en="🔐 Login">🔐 تسجيل الدخول</button>
+                    <button id="accountBtn" onclick="openProfileModal(auth.currentUser)" style="display:none;" data-ar="👤 حسابي" data-en="👤 My Account">👤 حسابي</button>
+                    <button class="logout-btn" id="logoutBtn" onclick="handleLogout()" style="display:none;" data-ar="🚪 تسجيل الخروج" data-en="🚪 Logout">🚪 تسجيل الخروج</button>
+                    <button id="langToggleBtn" onclick="toggleLanguage()" class="lang-toggle-btn">🌐 English</button>
                 </div>
             </div>
             <a href="#" class="logo" onclick="showAllProducts(); return false;">
@@ -341,32 +356,32 @@ footer .footer-bottom { border-top:1px solid #3a302b; padding-top:18px; text-ali
             </button>
         </div>
         <div class="header-search">
-            <input type="text" id="searchInput" placeholder="ابحث عن أي منتج..." onkeyup="searchProducts()">
+            <input type="text" id="searchInput" placeholder="ابحث عن أي منتج..." data-ar="ابحث عن أي منتج..." data-en="Search for any product..." onkeyup="searchProducts()">
             <button onclick="searchProducts()">🔍</button>
         </div>
     </header>
 
     <div class="hero-slider">
         <div class="slider-track" id="sliderTrack">
-  <div class="slide">
-    <img src="https://e.top4top.io/p_3856gump01.jpeg" alt="Makeup">
-    <div class="slide-overlay">
-        <h1>💄 Makeup</h1>
-        <p>أفضل مستحضرات التجميل بأفضل الأسعار ✨</p>
-    </div>
-</div>
+            <div class="slide">
+                <img src="https://e.top4top.io/p_3856gump01.jpeg" alt="Makeup">
+                <div class="slide-overlay">
+                    <h1 data-ar="💄 Makeup" data-en="💄 Makeup">💄 Makeup</h1>
+                    <p data-ar="أفضل مستحضرات التجميل بأفضل الأسعار ✨" data-en="Best cosmetics at best prices ✨">أفضل مستحضرات التجميل بأفضل الأسعار ✨</p>
+                </div>
+            </div>
             <div class="slide">
                 <img src="https://e.top4top.io/p_3856v42n81.jpeg" alt="Hero 2">
                 <div class="slide-overlay">
-                    <h1>Handmade BeautyCare</h1>
-                    <p>منتجات يدوية أصلية 100%</p>
+                    <h1 data-ar="Handmade BeautyCare" data-en="Handmade BeautyCare">Handmade BeautyCare</h1>
+                    <p data-ar="منتجات يدوية أصلية 100%" data-en="100% Authentic Handmade Products">منتجات يدوية أصلية 100%</p>
                 </div>
             </div>
             <div class="slide">
                 <img src="https://l.top4top.io/p_38562do8y1.jpeg" alt="Hero 3">
                 <div class="slide-overlay">
-                    <h1>Stainless Steel</h1>
-                    <p>خواتم وإكسسوارات ستانلس ستيل مقاومة للصدأ</p>
+                    <h1 data-ar="Stainless Steel" data-en="Stainless Steel">Stainless Steel</h1>
+                    <p data-ar="خواتم وإكسسوارات ستانلس ستيل مقاومة للصدأ" data-en="Rust-resistant stainless steel rings & accessories">خواتم وإكسسوارات ستانلس ستيل مقاومة للصدأ</p>
                 </div>
             </div>
         </div>
@@ -378,66 +393,66 @@ footer .footer-bottom { border-top:1px solid #3a302b; padding-top:18px; text-ali
     </div>
 
     <div class="shop-by-category">
-        <h2>تسوق حسب الفئة</h2>
+        <h2 data-ar="تسوق حسب الفئة" data-en="Shop by Category">تسوق حسب الفئة</h2>
         <div class="category-grid">
             <a href="#" class="category-item" onclick="filterByCategory('Handmade BeautyCare'); return false;">
                 <div class="category-icon-box"><img src="https://e.top4top.io/p_3856v42n81.jpeg" alt="Handmade"></div>
-                <span>Handmade BeautyCare</span>
+                <span data-ar="Handmade BeautyCare" data-en="Handmade BeautyCare">Handmade BeautyCare</span>
             </a>
             <a href="#" class="category-item" onclick="filterByCategory('Stainless Steel'); return false;">
                 <div class="category-icon-box"><img src="https://l.top4top.io/p_38562do8y1.jpeg" alt="Stainless"></div>
-                <span>Stainless Steel</span>
+                <span data-ar="Stainless Steel" data-en="Stainless Steel">Stainless Steel</span>
             </a>
             <a href="#" class="category-item" onclick="filterByCategory('Hair Accessories'); return false;">
                 <div class="category-icon-box"><img src="https://a.top4top.io/p_3856wjh7y1.jpeg" alt="Hair"></div>
-                <span>🎀 Hair Accessories</span>
+                <span data-ar="🎀 Hair Accessories" data-en="🎀 Hair Accessories">🎀 Hair Accessories</span>
             </a>
             <a href="#" class="category-item" onclick="filterByCategory('Makeup'); return false;">
                 <div class="category-icon-box"><img src="https://e.top4top.io/p_3856gump01.jpeg" alt="Makeup"></div>
-                <span>💄 Makeup</span>
+                <span data-ar="💄 Makeup" data-en="💄 Makeup">💄 Makeup</span>
             </a>
             <a href="#" class="category-item" onclick="filterByCategory('Accessories Hand made'); return false;">
                 <div class="category-icon-box"><img src="https://f.top4top.io/p_385600ghh4.jpeg" alt="Accessories"></div>
-                <span>💍 Accessories Hand made</span>
+                <span data-ar="💍 Accessories Hand made" data-en="💍 Accessories Hand made">💍 Accessories Hand made</span>
             </a>
         </div>
     </div>
 
     <div class="section-head" id="sectionHead">
-        <span class="subtitle">عروض لفترة محدودة</span>
-        <h2 id="sectionTitle">🛍️ <span>منتجاتنا</span></h2>
-        <p id="sectionSubtitle">تصفح جميع منتجات المتجر</p>
+        <span class="subtitle" data-ar="عروض لفترة محدودة" data-en="Limited Time Offers">عروض لفترة محدودة</span>
+        <h2 id="sectionTitle">🛍️ <span data-ar="منتجاتنا" data-en="Our Products">منتجاتنا</span></h2>
+        <p id="sectionSubtitle" data-ar="تصفح جميع منتجات المتجر" data-en="Browse all store products">تصفح جميع منتجات المتجر</p>
     </div>
 
     <div id="loadingSpinner" class="loading-spinner">
         <div class="spinner"></div>
-        <p style="color:#888;">جاري تحميل المنتجات...</p>
+        <p style="color:#888;" data-ar="جاري تحميل المنتجات..." data-en="Loading products...">جاري تحميل المنتجات...</p>
     </div>
 
     <main id="productsContainer"></main>
 
     <div style="text-align:center; display:none; padding: 10px 30px 40px;" id="backButtonContainer">
-        <button class="back-btn" onclick="showAllProducts()" style="padding:12px 30px; background:var(--ink); color:#fff;">🏠 العودة للرئيسية</button>
+        <button class="back-btn" onclick="showAllProducts()" style="padding:12px 30px; background:var(--ink); color:#fff;" data-ar="🏠 العودة للرئيسية" data-en="🏠 Back to Home">🏠 العودة للرئيسية</button>
     </div>
 
     <aside class="cart-sidebar" id="cartSidebar">
         <div class="cart-header">
-            <h2>🛒 <span>عربة</span> التسوق</h2>
+            <h2>🛒 <span data-ar="عربة" data-en="Shopping">عربة</span> <span data-ar="التسوق" data-en="Cart">التسوق</span></h2>
             <button onclick="toggleCart()">✕</button>
         </div>
         <div id="cartItems">
             <div class="empty-cart-msg">
                 <span class="icon">🛒</span>
-                <p>لا توجد منتجات في العربة</p>
+                <p data-ar="لا توجد منتجات في العربة" data-en="No products in cart">لا توجد منتجات في العربة</p>
             </div>
         </div>
         <div class="cart-footer">
             <div class="total-row">
-                <h3>الإجمالي</h3>
-                <h2><span id="cartTotal">0</span> ج.م</h2>
+                <h3 data-ar="الإجمالي" data-en="Total">الإجمالي</h3>
+                <h2><span id="cartTotal">0</span> <span data-ar="ج.م" data-en="EGP">ج.م</span></h2>
             </div>
-            <button class="checkout-btn" onclick="checkout()">إتمام الشراء ✅</button>
-            <button class="clear-cart-btn" onclick="clearCart()">🗑️ تفريغ العربة</button>
+            <button class="checkout-btn" onclick="checkout()" data-ar="إتمام الشراء ✅" data-en="Checkout ✅">إتمام الشراء ✅</button>
+            <button class="clear-cart-btn" onclick="clearCart()" data-ar="🗑️ تفريغ العربة" data-en="🗑️ Clear Cart">🗑️ تفريغ العربة</button>
         </div>
     </aside>
 
@@ -447,7 +462,7 @@ footer .footer-bottom { border-top:1px solid #3a302b; padding-top:18px; text-ali
     <div id="productDetailsModal" class="privacy-modal">
         <div class="privacy-modal-content" style="max-width: 900px; max-height: 95vh; overflow-y: auto;">
             <div class="privacy-modal-header">
-                <h2>📦 <span>تفاصيل</span> المنتج</h2>
+                <h2 data-ar="📦 تفاصيل المنتج" data-en="📦 Product Details">📦 <span data-ar="تفاصيل" data-en="Details">تفاصيل</span> <span data-ar="المنتج" data-en="Product">المنتج</span></h2>
                 <button onclick="closeProductDetails()">✕</button>
             </div>
             <div class="privacy-modal-body">
@@ -459,27 +474,25 @@ footer .footer-bottom { border-top:1px solid #3a302b; padding-top:18px; text-ali
     <div id="checkoutModal" class="privacy-modal">
         <div class="privacy-modal-content" style="max-width: 520px;">
             <div class="privacy-modal-header">
-                <h2>💳 <span>بيانات</span> الشحن والتوصيل</h2>
+                <h2 data-ar="💳 بيانات الشحن والتوصيل" data-en="💳 Shipping & Delivery Data">💳 <span data-ar="بيانات" data-en="Shipping">بيانات</span> <span data-ar="الشحن والتوصيل" data-en="Data">الشحن والتوصيل</span></h2>
                 <button onclick="closeCheckoutModal()">✕</button>
             </div>
             <div class="privacy-modal-body">
                 <div class="checkout-box">
-                    <label for="clientName">👤 الاسم بالكامل:</label>
-                    <input type="text" id="clientName" placeholder="اكتب اسمك الثلاثي...">
-                    <label for="clientEmail">✉️ البريد الإلكتروني:</label>
+                    <label for="clientName" data-ar="👤 الاسم بالكامل:" data-en="👤 Full Name:">👤 الاسم بالكامل:</label>
+                    <input type="text" id="clientName" placeholder="اكتب اسمك الثلاثي..." data-ar="اكتب اسمك الثلاثي..." data-en="Enter your full name...">
+                    <label for="clientEmail" data-ar="✉️ البريد الإلكتروني:" data-en="✉️ Email:">✉️ البريد الإلكتروني:</label>
                     <input type="email" id="clientEmail" value="jojocharm10@gmail.com" readonly>
-                    <label for="clientPhone">📱 رقم الهاتف:</label>
-                    <input type="text" id="clientPhone" placeholder="مثال: 01012345678">
-                    <label for="clientLocation">📍 الموقع:</label>
+                    <label for="clientPhone" data-ar="📱 رقم الهاتف:" data-en="📱 Phone Number:">📱 رقم الهاتف:</label>
+                    <input type="text" id="clientPhone" placeholder="مثال: 01012345678" data-ar="مثال: 01012345678" data-en="Example: 01012345678">
+                    <label for="clientLocation" data-ar="📍 الموقع:" data-en="📍 Location:">📍 الموقع:</label>
                     <div class="location-btn-group">
-                        <input type="text" id="clientLocation" placeholder="اكتب عنوانك...">
-                        <button class="location-btn gps" onclick="getLocation()">📍 تلقائي</button>
-                        <button class="location-btn map" onclick="openMapPicker()">🗺️ اختيار</button>
+                        <input type="text" id="clientLocation" placeholder="اكتب عنوانك..." data-ar="اكتب عنوانك..." data-en="Enter your address...">
+                        <button class="location-btn gps" onclick="getLocation()" data-ar="📍 تلقائي" data-en="📍 Auto">📍 تلقائي</button>
+                        <button class="location-btn map" onclick="openMapPicker()" data-ar="🗺️ اختيار" data-en="🗺️ Choose">🗺️ اختيار</button>
                     </div>
-                    <small class="location-hint">📍 اختر تلقائياً أو افتح الخريطة وانسخ العنوان</small>
-                    <button class="checkout-btn" id="submitOrderBtn" onclick="sendOrderToFormcarry()" style="margin-top:16px;">
-                        تأكيد وإرسال 💬
-                    </button>
+                    <small class="location-hint" data-ar="📍 اختر تلقائياً أو افتح الخريطة وانسخ العنوان" data-en="📍 Choose automatically or open map and copy address">📍 اختر تلقائياً أو افتح الخريطة وانسخ العنوان</small>
+                    <button class="checkout-btn" id="submitOrderBtn" onclick="sendOrderToFormcarry()" style="margin-top:16px;" data-ar="تأكيد وإرسال 💬" data-en="Confirm & Send 💬">تأكيد وإرسال 💬</button>
                 </div>
             </div>
         </div>
@@ -489,33 +502,99 @@ footer .footer-bottom { border-top:1px solid #3a302b; padding-top:18px; text-ali
         <div class="footer-content">
             <div>
                 <h4>🛍️ JoJo Charm</h4>
-                <p style="color:#b7a89f; font-size:14px; line-height:1.8;">أفضل متجر إكسسوارات ومنتجات تجميل<br>نقدم لكم أفضل المنتجات بأفضل الأسعار</p>
+                <p style="color:#b7a89f; font-size:14px; line-height:1.8;" data-ar="أفضل متجر إكسسوارات ومنتجات تجميل" data-en="Best accessories and beauty products store">أفضل متجر إكسسوارات ومنتجات تجميل<br><span data-ar="نقدم لكم أفضل المنتجات بأفضل الأسعار" data-en="We offer the best products at best prices">نقدم لكم أفضل المنتجات بأفضل الأسعار</span></p>
             </div>
             <div>
-                <h4>روابط سريعة</h4>
-                <a href="#" onclick="showAllProducts(); return false;">المنتجات</a>
-                <a href="#" onclick="showAllProducts(); return false;">الرئيسية</a>
+                <h4 data-ar="روابط سريعة" data-en="Quick Links">روابط سريعة</h4>
+                <a href="#" onclick="showAllProducts(); return false;" data-ar="المنتجات" data-en="Products">المنتجات</a>
+                <a href="#" onclick="showAllProducts(); return false;" data-ar="الرئيسية" data-en="Home">الرئيسية</a>
             </div>
             <div>
-                <h4>معلومات</h4>
-                <a href="#">الشحن والتوصيل</a>
-                <a href="#">الإرجاع والاستبدال</a>
+                <h4 data-ar="معلومات" data-en="Information">معلومات</h4>
+                <a href="#" data-ar="الشحن والتوصيل" data-en="Shipping & Delivery">الشحن والتوصيل</a>
+                <a href="#" data-ar="الإرجاع والاستبدال" data-en="Returns & Exchange">الإرجاع والاستبدال</a>
             </div>
             <div>
-                <h4>📞 تواصل معنا</h4>
-                <a href="mailto:jojocharm10@gmail.com"><img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="إيميل" width="20" height="20"> البريد الإلكتروني</a>
-                <a href="https://wa.me/201110580579" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="واتساب" width="20" height="20"> واتساب</a>
-                <a href="https://www.facebook.com/share/1EkWv3TqJG/" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="فيسبوك" width="20" height="20"> فيسبوك</a>
-                <a href="https://www.instagram.com/jojocharm10" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="انستجرام" width="20" height="20"> انستجرام</a>
+                <h4 data-ar="📞 تواصل معنا" data-en="📞 Contact Us">📞 تواصل معنا</h4>
+                <a href="mailto:jojocharm10@gmail.com"><img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="إيميل" width="20" height="20"> <span data-ar="البريد الإلكتروني" data-en="Email">البريد الإلكتروني</span></a>
+                <a href="https://wa.me/201110580579" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="واتساب" width="20" height="20"> <span data-ar="واتساب" data-en="WhatsApp">واتساب</span></a>
+                <a href="https://www.facebook.com/share/1EkWv3TqJG/" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="فيسبوك" width="20" height="20"> <span data-ar="فيسبوك" data-en="Facebook">فيسبوك</span></a>
+                <a href="https://www.instagram.com/jojocharm10" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="انستجرام" width="20" height="20"> <span data-ar="انستجرام" data-en="Instagram">انستجرام</span></a>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>© 2026 <span style="color:var(--accent); font-weight:bold;">JoJo Charm</span>. جميع الحقوق محفوظة</p>
+            <p>© 2026 <span style="color:var(--accent); font-weight:bold;">JoJo Charm</span>. <span data-ar="جميع الحقوق محفوظة" data-en="All rights reserved">جميع الحقوق محفوظة</span></p>
         </div>
     </footer>
 </div>
-
 <script>
+// ==========================================================
+// نظام تغيير اللغة (Language System)
+// ==========================================================
+let currentLang = localStorage.getItem('jojo_lang') || 'ar';
+
+function applyLanguage() {
+    const isAr = currentLang === 'ar';
+    
+    // تغيير اتجاه الصفحة والخط
+    document.documentElement.lang = isAr ? 'ar' : 'en';
+    document.documentElement.dir = isAr ? 'rtl' : 'ltr';
+    document.body.style.fontFamily = isAr ? "'Cairo', sans-serif" : "'Segoe UI', Tahoma, sans-serif";
+    
+    // تغيير النصوص
+    document.querySelectorAll('[data-ar]').forEach(el => {
+        const text = isAr ? el.getAttribute('data-ar') : el.getAttribute('data-en');
+        if (text) {
+            if (el.tagName === 'INPUT') {
+                el.placeholder = text;
+            } else {
+                el.innerHTML = text;
+            }
+        }
+    });
+
+    // تغيير زرار اللغة
+    const langBtn = document.getElementById('langToggleBtn');
+    if (langBtn) {
+        langBtn.innerHTML = isAr ? '🌐 English' : '🌐 العربية';
+    }
+    
+    // تنسيق اتجاه القوائم في حالة الإنجليزي
+    document.querySelectorAll('.user-dropdown button, .checkout-box label, .login-box input, .profile-box input').forEach(el => {
+        el.style.textAlign = isAr ? 'right' : 'left';
+    });
+
+    // تحديث السلة والمنتجات
+    if (typeof renderCart === 'function') renderCart();
+    if (typeof displayProducts === 'function' && document.getElementById('productsContainer').children.length > 0) {
+        const activeProducts = document.querySelectorAll('.product-card').length;
+        if(activeProducts > 0) {
+             if (typeof currentCategory !== 'undefined') {
+                 document.querySelectorAll('.add-to-cart-btn').forEach(btn => {
+                     btn.innerHTML = isAr ? '🛒 إضافة إلى العربة' : '🛒 Add to Cart';
+                 });
+                 document.querySelectorAll('.free-shipping').forEach(btn => {
+                     btn.innerHTML = isAr ? '🚚 توصيل مجاني' : '🚚 Free Shipping';
+                 });
+             }
+        }
+    }
+    
+    // إصلاح السلايدر بعد تغيير اللغة
+    updateSlider();
+}
+
+function toggleLanguage() {
+    currentLang = currentLang === 'ar' ? 'en' : 'ar';
+    localStorage.setItem('jojo_lang', currentLang);
+    applyLanguage();
+    showNotification(currentLang === 'ar' ? '✅ تم التحويل للعربية' : '✅ Language switched to English', 'success');
+    document.getElementById('userDropdown')?.classList.remove('show');
+}
+
+// ==========================================================
+// Firebase Configuration
+// ==========================================================
 const firebaseConfig = {
     apiKey: "AIzaSyCQRvW1ZMlos8rS7yi9KLCfz6Rii3wUDMw",
     authDomain: "jojo-a2b13.firebaseapp.com",
@@ -533,169 +612,29 @@ provider.addScope('email');
 provider.addScope('profile');
 
 // ==========================================================
-// ✏️✏️✏️  أضف / عدّل منتجاتك هنا  ✏️✏️✏️
+// Products Data
 // ==========================================================
 const productsData = [
-    {
-        id: 1,
-        name: "خاتم انيق بتصميم ثعبان ملتف بلون الذهبي للنساء",
-        price: 65, oldPrice: 85, discount: "23%",
-        category: "Stainless Steel",
-        sizes: ["واحدة"],
-        image: "https://i.imgpeek.com/OesqkPf0JBn4"
-    },
-    {
-        id: 2,
-        name: "خاتم نسائي من الستانلس ستيل بتصميم فراشة مفرغة باللون الذهبي - مقاوم للصدأ",
-        price: 65, oldPrice: 85, discount: "23%",
-        category: "Stainless Steel",
-        sizes: ["واحدة"],
-        image: "https://i.imgpeek.com/kzj3NA3UNOV6"
-    },
-    {
-        id: 3,
-        name: "خاتم نسائي من الستانلس ستيل بتصميم أوراق شجر - مقاوم للصدأ",
-        price: 65, oldPrice: 85, discount: "23%",
-        category: "Stainless Steel",
-        sizes: ["واحدة"],
-        image: "https://i.imgpeek.com/LCS8Frx1JHXV"
-    },
-    {
-        id: 4,
-        name: "خاتم نسائي من الستانلس ستيل بتصميم أفعى ناعم باللون الذهبي - مقاوم للصدأ",
-        price: 65, oldPrice: 85, discount: "23%",
-        category: "Stainless Steel",
-        sizes: ["واحدة"],
-        image: "https://i.imgpeek.com/yTAQpxO1_Xrq"
-    },
-    {
-        id: 5,
-        name: "خاتم نسائي من الستانلس ستيل بتصميم صفين وفراشتين باللون الذهبي - مقاوم للصدأ",
-        price: 65, oldPrice: 85, discount: "23%",
-        category: "Stainless Steel",
-        sizes: ["واحدة"],
-        image: "https://i.imgpeek.com/87-pvdAZHoNc"
-    },
-    {
-        id: 6,
-        name: "خاتم نسائي من الستانلس ستيل بتصميم أوراق شجر صغيرة باللون الذهبي - مقاوم للصدأ",
-        price: 65, oldPrice: 85, discount: "23%",
-        category: "Stainless Steel",
-        sizes: ["واحدة"],
-        image: "https://i.imgpeek.com/woHlA-AR3XSK"
-    },
-    {
-        id: 7,
-        name: "طقم إكسسوارات خرز فيروزي أنيق - سوارين بتصميم مميز مع تعليقة كف",
-        price: 65, oldPrice: 85, discount: "23%",
-        category: "Hair Accessories",
-        sizes: ["واحدة"],
-        image: "https://i.imgpeek.com/PLc7vKHnnONq"
-    },
-    {
-        id: 8,
-        name: "أسورة يد نسائية بتصميم فريد يجمع بين الخرز الدائري وكسر أحجار الفيروز",
-        price: 65, oldPrice: 85, discount: "23%",
-        category: "Hair Accessories",
-        sizes: ["واحدة"],
-        image: "https://i.imgpeek.com/BkNFF1K3XNqe"
-    },
-    {
-        id: 9,
-        name: "أسورة يد نسائية بوهيمية من أقراص الخشب متعددة الألوان على خيط أسود",
-        price: 65, oldPrice: 85, discount: "23%",
-        category: "Hair Accessories",
-        sizes: ["واحدة"],
-        image: "https://i.imgpeek.com/d-W7RP4hQcE7"
-    },
-    {
-        id: 10,
-        name: "أسورة مصنوعة يدوياً من الأحجار والكريستال - لمسة أنيقة من الطبيعية",
-        price: 65, oldPrice: 85, discount: "23%",
-        category: "Hair Accessories",
-        sizes: ["واحدة"],
-        image: "https://i.imgpeek.com/823Q0wimvkPj"
-    },
-    {
-        id: 11,
-        name: "أسورة يد أنيقة",
-        price: 65, oldPrice: 85, discount: "23%",
-        category: "Hair Accessories",
-        sizes: ["واحدة"],
-        image: "https://i.imgpeek.com/8iFuSt09guhl"
-    },
-    {
-        id: 12,
-        name: "أسورة يد أنيقة",
-        price: 65, oldPrice: 85, discount: "23%",
-        category: "Hair Accessories",
-        sizes: ["واحدة"],
-        image: "https://i.imgpeek.com/a_VEgsxinfXt"
-    },
-    {
-        id: 13,
-        name: "أسورة يد أنيقة",
-        price: 65, oldPrice: 85, discount: "23%",
-        category: "Hair Accessories",
-        sizes: ["واحدة"],
-        image: "https://i.imgpeek.com/nY6-i-5xxXMk"
-    },
-    {
-        id: 14,
-        name: "أسورة يد أنيقة",
-        price: 65, oldPrice: 85, discount: "23%",
-        category: "Hair Accessories",
-        sizes: ["واحدة"],
-        image: "https://i.imgpeek.com/ZHgfe3K0O9Jx"
-    },
-    {
-        id: 15,
-        name: "أسورة يد أنيقة",
-        price: 65, oldPrice: 85, discount: "23%",
-        category: "Hair Accessories",
-        sizes: ["واحدة"],
-        image: "https://i.imgpeek.com/MA496EZvV7cE"
-    },
-    {
-        id: 16,
-        name: "أسورة يد أنيقة",
-        price: 65, oldPrice: 85, discount: "23%",
-        category: "Hair Accessories",
-        sizes: ["واحدة"],
-        image: "https://i.imgpeek.com/T8kA6jjlU4Rk"
-    },
-    {
-        id: 17,
-        name: "أسورة يد أنيقة",
-        price: 65, oldPrice: 85, discount: "23%",
-        category: "Hair Accessories",
-        sizes: ["واحدة"],
-        image: "https://i.imgpeek.com/rdG7peRGooNn"
-    },
-    {
-        id: 18,
-        name: "أسورة يد أنيقة",
-        price: 65, oldPrice: 85, discount: "23%",
-        category: "Hair Accessories",
-        sizes: ["واحدة"],
-        image: "https://i.imgpeek.com/dEU60-EncFxb"
-    },
-    {
-        id: 19,
-        name: "أسورة يد أنيقة",
-        price: 65, oldPrice: 85, discount: "23%",
-        category: "Hair Accessories",
-        sizes: ["واحدة"],
-        image: "https://i.imgpeek.com/rIDizMPcURLo"
-    },
-    {
-        id: 20,
-        name: "أسورة يد أنيقة",
-        price: 65, oldPrice: 85, discount: "23%",
-        category: "Hair Accessories",
-        sizes: ["واحدة"],
-        image: "https://i.imgpeek.com/QTg5HdCff9D7"
-    }
+    { id: 1, name: "خاتم انيق بتصميم ثعبان ملتف بلون الذهبي للنساء", name_en: "Elegant Golden Snake Ring", price: 65, oldPrice: 85, discount: "23%", category: "Stainless Steel", sizes: ["واحدة"], image: "https://i.imgpeek.com/OesqkPf0JBn4" },
+    { id: 2, name: "خاتم نسائي بتصميم فراشة مفرغة باللون الذهبي", name_en: "Women's Golden Butterfly Ring", price: 65, oldPrice: 85, discount: "23%", category: "Stainless Steel", sizes: ["واحدة"], image: "https://i.imgpeek.com/kzj3NA3UNOV6" },
+    { id: 3, name: "خاتم نسائي من الستانلس ستيل بتصميم أوراق شجر", name_en: "Stainless Steel Leaf Ring", price: 65, oldPrice: 85, discount: "23%", category: "Stainless Steel", sizes: ["واحدة"], image: "https://i.imgpeek.com/LCS8Frx1JHXV" },
+    { id: 4, name: "خاتم نسائي بتصميم أفعى ناعم باللون الذهبي", name_en: "Golden Snake Ring", price: 65, oldPrice: 85, discount: "23%", category: "Stainless Steel", sizes: ["واحدة"], image: "https://i.imgpeek.com/yTAQpxO1_Xrq" },
+    { id: 5, name: "خاتم نسائي بتصميم صفين وفراشتين", name_en: "Double Row Butterfly Ring", price: 65, oldPrice: 85, discount: "23%", category: "Stainless Steel", sizes: ["واحدة"], image: "https://i.imgpeek.com/87-pvdAZHoNc" },
+    { id: 6, name: "خاتم نسائي بتصميم أوراق شجر صغيرة", name_en: "Small Leaf Ring", price: 65, oldPrice: 85, discount: "23%", category: "Stainless Steel", sizes: ["واحدة"], image: "https://i.imgpeek.com/woHlA-AR3XSK" },
+    { id: 7, name: "طقم إكسسوارات خرز فيروزي أنيق", name_en: "Elegant Turquoise Bracelet Set", price: 65, oldPrice: 85, discount: "23%", category: "Hair Accessories", sizes: ["واحدة"], image: "https://i.imgpeek.com/PLc7vKHnnONq" },
+    { id: 8, name: "أسورة يد نسائية بتصميم فريد", name_en: "Unique Design Bracelet", price: 65, oldPrice: 85, discount: "23%", category: "Hair Accessories", sizes: ["واحدة"], image: "https://i.imgpeek.com/BkNFF1K3XNqe" },
+    { id: 9, name: "أسورة يد نسائية بوهيمية", name_en: "Bohemian Bracelet", price: 65, oldPrice: 85, discount: "23%", category: "Hair Accessories", sizes: ["واحدة"], image: "https://i.imgpeek.com/d-W7RP4hQcE7" },
+    { id: 10, name: "أسورة مصنوعة يدوياً من الأحجار", name_en: "Handmade Stone Bracelet", price: 65, oldPrice: 85, discount: "23%", category: "Hair Accessories", sizes: ["واحدة"], image: "https://i.imgpeek.com/823Q0wimvkPj" },
+    { id: 11, name: "أسورة يد أنيقة", name_en: "Elegant Bracelet", price: 65, oldPrice: 85, discount: "23%", category: "Hair Accessories", sizes: ["واحدة"], image: "https://i.imgpeek.com/8iFuSt09guhl" },
+    { id: 12, name: "أسورة يد أنيقة", name_en: "Elegant Bracelet", price: 65, oldPrice: 85, discount: "23%", category: "Hair Accessories", sizes: ["واحدة"], image: "https://i.imgpeek.com/a_VEgsxinfXt" },
+    { id: 13, name: "أسورة يد أنيقة", name_en: "Elegant Bracelet", price: 65, oldPrice: 85, discount: "23%", category: "Hair Accessories", sizes: ["واحدة"], image: "https://i.imgpeek.com/nY6-i-5xxXMk" },
+    { id: 14, name: "أسورة يد أنيقة", name_en: "Elegant Bracelet", price: 65, oldPrice: 85, discount: "23%", category: "Hair Accessories", sizes: ["واحدة"], image: "https://i.imgpeek.com/ZHgfe3K0O9Jx" },
+    { id: 15, name: "أسورة يد أنيقة", name_en: "Elegant Bracelet", price: 65, oldPrice: 85, discount: "23%", category: "Hair Accessories", sizes: ["واحدة"], image: "https://i.imgpeek.com/MA496EZvV7cE" },
+    { id: 16, name: "أسورة يد أنيقة", name_en: "Elegant Bracelet", price: 65, oldPrice: 85, discount: "23%", category: "Hair Accessories", sizes: ["واحدة"], image: "https://i.imgpeek.com/T8kA6jjlU4Rk" },
+    { id: 17, name: "أسورة يد أنيقة", name_en: "Elegant Bracelet", price: 65, oldPrice: 85, discount: "23%", category: "Hair Accessories", sizes: ["واحدة"], image: "https://i.imgpeek.com/rdG7peRGooNn" },
+    { id: 18, name: "أسورة يد أنيقة", name_en: "Elegant Bracelet", price: 65, oldPrice: 85, discount: "23%", category: "Hair Accessories", sizes: ["واحدة"], image: "https://i.imgpeek.com/dEU60-EncFxb" },
+    { id: 19, name: "أسورة يد أنيقة", name_en: "Elegant Bracelet", price: 65, oldPrice: 85, discount: "23%", category: "Hair Accessories", sizes: ["واحدة"], image: "https://i.imgpeek.com/rIDizMPcURLo" },
+    { id: 20, name: "أسورة يد أنيقة", name_en: "Elegant Bracelet", price: 65, oldPrice: 85, discount: "23%", category: "Hair Accessories", sizes: ["واحدة"], image: "https://i.imgpeek.com/QTg5HdCff9D7" }
 ];
 
 // ===== المتغيرات =====
@@ -704,18 +643,34 @@ let currentCategory = 'all';
 let currentUser = null;
 let currentDetailProductId = null;
 let currentSlide = 0;
-const totalSlides = 3;
 
-// ===== السلايدر =====
+// ===== السلايدر (تم إصلاحه ليشتغل مع RTL و LTR) =====
 function updateSlider() {
     const track = document.getElementById('sliderTrack');
-    if(track) track.style.transform = `translateX(${currentSlide * 100}%)`;
+    if(track) {
+        // بنحسب اتجاه الصفحة (RTL أو LTR) عشان الحركة تبقى صح
+        const isRTL = document.documentElement.dir === 'rtl';
+        const offset = isRTL ? currentSlide * 100 : -currentSlide * 100;
+        track.style.transform = `translateX(${offset}%)`;
+    }
     document.querySelectorAll('.slider-dots .dot').forEach((dot, i) => {
         dot.classList.toggle('active', i === currentSlide);
     });
 }
-function goToSlide(index) { currentSlide = index; updateSlider(); }
-setInterval(() => { currentSlide = (currentSlide + 1) % totalSlides; updateSlider(); }, 4500);
+
+function goToSlide(index) { 
+    const total = document.querySelectorAll('#sliderTrack .slide').length || 1;
+    if (index >= total) index = 0;
+    if (index < 0) index = total - 1;
+    currentSlide = index; 
+    updateSlider(); 
+}
+
+setInterval(() => { 
+    const total = document.querySelectorAll('#sliderTrack .slide').length || 1;
+    currentSlide = (currentSlide + 1) % total; 
+    updateSlider(); 
+}, 4500);
 
 // ===== عرض المنتجات =====
 function displayProducts(productsToDisplay) {
@@ -727,32 +682,33 @@ function displayProducts(productsToDisplay) {
     setTimeout(() => {
         spinner?.classList.remove('show');
         if (!productsToDisplay || productsToDisplay.length === 0) {
-            container.innerHTML = `<div style="grid-column:1/-1; text-align:center; padding:80px 20px; color:#888;"><span style="font-size:60px; display:block; margin-bottom:20px;">🔍</span><h2 style="font-size:28px; margin-bottom:10px; color:#111;">لا توجد منتجات</h2><p>حاول تغيير كلمة البحث أو التصنيف</p></div>`;
+            container.innerHTML = `<div style="grid-column:1/-1; text-align:center; padding:80px 20px; color:#888;"><span style="font-size:60px; display:block; margin-bottom:20px;">🔍</span><h2 style="font-size:28px; margin-bottom:10px; color:#111;">${currentLang === 'ar' ? 'لا توجد منتجات' : 'No Products'}</h2><p>${currentLang === 'ar' ? 'حاول تغيير كلمة البحث أو التصنيف' : 'Try changing the search or category'}</p></div>`;
             return;
         }
         const fragment = document.createDocumentFragment();
         productsToDisplay.forEach(product => {
             const discountPercent = product.discount ? `<span class="discount-badge">${product.discount}</span>` : '';
+            const pName = currentLang === 'ar' ? product.name : (product.name_en || product.name);
             const card = document.createElement('div');
             card.className = 'product-card';
             card.innerHTML = `
                 <div class="product-image-wrapper" onclick="openProductDetails(${product.id})">
-                    <img src="${product.image}" alt="${product.name}" loading="lazy">
+                    <img src="${product.image}" alt="${pName}" loading="lazy">
                     ${discountPercent}
                 </div>
                 <div class="product-info" onclick="openProductDetails(${product.id})">
-                    <h3>${product.name}</h3>
+                    <h3>${pName}</h3>
                     <div style="display:flex;align-items:center;gap:6px;">
                         <span style="color:var(--accent);font-size:13px;letter-spacing:1px;">⭐⭐⭐⭐⭐</span>
                         <span style="color:#777;font-size:12px;">(0)</span>
                     </div>
                     <div class="price-container">
-                        <span class="current-price">${product.price} ج.م</span>
-                        ${product.oldPrice ? `<span class="old-price">${product.oldPrice} ج.م</span>` : ''}
+                        <span class="current-price">${product.price} ${currentLang === 'ar' ? 'ج.م' : 'EGP'}</span>
+                        ${product.oldPrice ? `<span class="old-price">${product.oldPrice} ${currentLang === 'ar' ? 'ج.م' : 'EGP'}</span>` : ''}
                         ${product.discount ? `<span class="discount-percent">${product.discount}</span>` : ''}
                     </div>
-                    <span class="free-shipping">🚚 توصيل مجاني</span>
-                    <button class="add-to-cart-btn" onclick="event.stopPropagation(); addToCart(${product.id})">🛒 إضافة إلى العربة</button>
+                    <span class="free-shipping">${currentLang === 'ar' ? '🚚 توصيل مجاني' : '🚚 Free Shipping'}</span>
+                    <button class="add-to-cart-btn" onclick="event.stopPropagation(); addToCart(${product.id})">${currentLang === 'ar' ? '🛒 إضافة إلى العربة' : '🛒 Add to Cart'}</button>
                 </div>
             `;
             fragment.appendChild(card);
@@ -775,17 +731,17 @@ function showAllProducts() {
     displayProducts(productsData);
     document.querySelector('.shop-by-category').style.display = 'block';
     document.getElementById('backButtonContainer').style.display = 'none';
-    document.getElementById('sectionTitle').innerHTML = '🛍️ <span>منتجاتنا</span>';
+    document.getElementById('sectionTitle').innerHTML = `🛍️ <span>${currentLang === 'ar' ? 'منتجاتنا' : 'Our Products'}</span>`;
     document.getElementById('searchInput').value = '';
 }
 function searchProducts() {
     const q = document.getElementById('searchInput').value.trim().toLowerCase();
     if (!q) { showAllProducts(); return; }
-    const filtered = productsData.filter(p => p.name.toLowerCase().includes(q));
+    const filtered = productsData.filter(p => p.name.toLowerCase().includes(q) || (p.name_en && p.name_en.toLowerCase().includes(q)));
     displayProducts(filtered);
     document.querySelector('.shop-by-category').style.display = 'none';
     document.getElementById('backButtonContainer').style.display = filtered.length > 0 ? 'block' : 'none';
-    document.getElementById('sectionTitle').innerHTML = `🔍 <span>نتائج البحث</span>`;
+    document.getElementById('sectionTitle').innerHTML = `🔍 <span>${currentLang === 'ar' ? 'نتائج البحث' : 'Search Results'}</span>`;
 }
 
 // ===== تفاصيل المنتج =====
@@ -793,34 +749,36 @@ function openProductDetails(productId) {
     const product = productsData.find(p => p.id === productId);
     if (!product) return;
     currentDetailProductId = productId;
+    const isAr = currentLang === 'ar';
+    const pName = isAr ? product.name : (product.name_en || product.name);
     const sizesHTML = product.sizes && product.sizes.length > 0
-        ? `<div style="margin:10px 0;"><strong>📏 المقاسات:</strong> ${product.sizes.join(' - ')}</div>` : '';
+        ? `<div style="margin:10px 0;"><strong>${isAr ? '📏 المقاسات:' : '📏 Sizes:'}</strong> ${product.sizes.join(' - ')}</div>` : '';
     document.getElementById('productDetailsContent').innerHTML = `
         <div class="product-details-grid">
             <div>
                 <div class="details-gallery-main">
-                    <img src="${product.image}" alt="${product.name}">
+                    <img src="${product.image}" alt="${pName}">
                 </div>
             </div>
             <div class="product-details-info">
-                <button class="back-btn" onclick="closeProductDetails()">← العودة إلى المتجر</button>
-                <h1>${product.name}</h1>
+                <button class="back-btn" onclick="closeProductDetails()">${isAr ? '← العودة إلى المتجر' : '← Back to Store'}</button>
+                <h1>${pName}</h1>
                 <div class="price-row">
-                    <span class="current">${product.price} ج.م</span>
-                    ${product.oldPrice ? `<span class="old">${product.oldPrice} ج.م</span>` : ''}
-                    ${product.discount ? `<span style="font-size:13px; color:#2e7d32; font-weight:800;">خصم ${product.discount}</span>` : ''}
+                    <span class="current">${product.price} ${isAr ? 'ج.م' : 'EGP'}</span>
+                    ${product.oldPrice ? `<span class="old">${product.oldPrice} ${isAr ? 'ج.م' : 'EGP'}</span>` : ''}
+                    ${product.discount ? `<span style="font-size:13px; color:#2e7d32; font-weight:800;">${isAr ? 'خصم ' + product.discount : product.discount + ' OFF'}</span>` : ''}
                 </div>
-                <span style="color:#2e7d32; font-weight:700; font-size:14px; display:inline-block; background:rgba(46,125,50,0.1); padding:5px 12px; border-radius:20px;">🚚 توصيل مجاني</span>
+                <span style="color:#2e7d32; font-weight:700; font-size:14px; display:inline-block; background:rgba(46,125,50,0.1); padding:5px 12px; border-radius:20px;">${isAr ? '🚚 توصيل مجاني' : '🚚 Free Shipping'}</span>
                 <div class="description">
-                    <strong>📝 الوصف:</strong>
-                    <p>منتج ${product.category} عالي الجودة من JoJo Charm.</p>
+                    <strong>${isAr ? '📝 الوصف:' : '📝 Description:'}</strong>
+                    <p>${isAr ? 'منتج ' + product.category + ' عالي الجودة من JoJo Charm.' : 'High quality ' + product.category + ' product from JoJo Charm.'}</p>
                 </div>
                 <div style="background:var(--soft); padding:12px; border-radius:12px; display:flex; flex-direction:column; gap:8px; font-size:14px;">
-                    <span><strong>🏷️ العلامة التجارية:</strong> JoJo Charm</span>
-                    <span><strong>📦 التوصيل:</strong> توصيل مجاني</span>
+                    <span><strong>${isAr ? '🏷️ العلامة التجارية:' : '🏷️ Brand:'}</strong> JoJo Charm</span>
+                    <span><strong>${isAr ? '📦 التوصيل:' : '📦 Delivery:'}</strong> ${isAr ? 'توصيل مجاني' : 'Free Shipping'}</span>
                 </div>
                 ${sizesHTML}
-                <button class="add-to-cart-btn" onclick="addToCartFromDetails()" style="padding:15px; font-size:16px;">🛒 إضافة إلى العربة</button>
+                <button class="add-to-cart-btn" onclick="addToCartFromDetails()" style="padding:15px; font-size:16px;">${isAr ? '🛒 إضافة إلى العربة' : '🛒 Add to Cart'}</button>
             </div>
         </div>
     `;
@@ -856,7 +814,7 @@ function addToCart(id) {
     localStorage.setItem('cart', JSON.stringify(cart));
     updateCartIconCount();
     renderCart();
-    showNotification('✅ تم إضافة المنتج إلى العربة!', 'success');
+    showNotification(currentLang === 'ar' ? '✅ تم إضافة المنتج إلى العربة!' : '✅ Added to cart!', 'success');
 }
 function updateCartIconCount() {
     const total = cart.reduce((sum, item) => sum + item.quantity, 0);
@@ -866,8 +824,9 @@ function updateCartIconCount() {
 function renderCart() {
     const cartItems = document.getElementById('cartItems');
     const cartTotal = document.getElementById('cartTotal');
+    const isAr = currentLang === 'ar';
     if (cart.length === 0) {
-        cartItems.innerHTML = `<div class="empty-cart-msg"><span class="icon">🛒</span><p>لا توجد منتجات في العربة</p></div>`;
+        cartItems.innerHTML = `<div class="empty-cart-msg"><span class="icon">🛒</span><p>${isAr ? 'لا توجد منتجات في العربة' : 'No products in cart'}</p></div>`;
         cartTotal.innerText = '0';
         return;
     }
@@ -875,12 +834,13 @@ function renderCart() {
     cartItems.innerHTML = '';
     cart.forEach(item => {
         total += item.price * item.quantity;
+        const pName = isAr ? item.name : (item.name_en || item.name);
         cartItems.innerHTML += `
             <div class="cart-item">
-                <img src="${item.image}" alt="${item.name}">
+                <img src="${item.image}" alt="${pName}">
                 <div class="cart-item-info">
-                    <h4>${item.name}</h4>
-                    <p class="cart-item-price">${item.price} ج.م</p>
+                    <h4>${pName}</h4>
+                    <p class="cart-item-price">${item.price} ${isAr ? 'ج.م' : 'EGP'}</p>
                     <div class="qty-box">
                         <button onclick="changeQuantity(${item.id}, -1)">−</button>
                         <span>${item.quantity}</span>
@@ -909,12 +869,13 @@ function removeFromCart(id) {
     renderCart();
 }
 function clearCart() {
-    if (confirm('هل أنت متأكد من تفريغ العربة بالكامل؟')) {
+    const isAr = currentLang === 'ar';
+    if (confirm(isAr ? 'هل أنت متأكد من تفريغ العربة بالكامل؟' : 'Are you sure you want to clear the cart?')) {
         cart = [];
         localStorage.setItem('cart', JSON.stringify(cart));
         updateCartIconCount();
         renderCart();
-        showNotification('🗑️ تم تفريغ العربة');
+        showNotification(isAr ? '🗑️ تم تفريغ العربة' : '🗑️ Cart cleared');
     }
 }
 
@@ -957,37 +918,38 @@ document.addEventListener('click', function(e) {
 });
 
 function handleLogin() {
+    const isAr = currentLang === 'ar';
     const email = document.getElementById('loginEmail').value.trim();
     const password = document.getElementById('loginPassword').value.trim();
     const errorEl = document.getElementById('loginError');
     const successEl = document.getElementById('loginSuccess');
     const loginBtn = document.getElementById('loginBtn');
     if (!email || !password) {
-        errorEl.textContent = '⚠️ يرجى إدخال البريد الإلكتروني وكلمة المرور';
+        errorEl.textContent = isAr ? '⚠️ يرجى إدخال البريد الإلكتروني وكلمة المرور' : '⚠️ Please enter email and password';
         errorEl.classList.add('show');
         return;
     }
     errorEl.classList.remove('show');
     successEl.classList.remove('show');
     loginBtn.disabled = true;
-    loginBtn.innerHTML = 'جاري تسجيل الدخول... ⏳';
+    loginBtn.innerHTML = isAr ? 'جاري تسجيل الدخول... ⏳' : 'Logging in... ⏳';
     auth.signInWithEmailAndPassword(email, password)
         .then(() => {
-            successEl.textContent = '✅ تم تسجيل الدخول بنجاح!';
+            successEl.textContent = isAr ? '✅ تم تسجيل الدخول بنجاح!' : '✅ Logged in successfully!';
             successEl.classList.add('show');
             setTimeout(() => closeLogin(), 800);
         })
         .catch((error) => {
-            let msg = '⚠️ البريد الإلكتروني أو كلمة المرور غير صحيحة';
-            if (error.code === 'auth/user-not-found') msg = '⚠️ لا يوجد حساب بهذا البريد';
-            else if (error.code === 'auth/wrong-password') msg = '⚠️ كلمة المرور غير صحيحة';
-            else if (error.code === 'auth/invalid-email') msg = '⚠️ البريد غير صحيح';
+            let msg = isAr ? '⚠️ البريد الإلكتروني أو كلمة المرور غير صحيحة' : '⚠️ Invalid email or password';
+            if (error.code === 'auth/user-not-found') msg = isAr ? '⚠️ لا يوجد حساب بهذا البريد' : '⚠️ No account with this email';
+            else if (error.code === 'auth/wrong-password') msg = isAr ? '⚠️ كلمة المرور غير صحيحة' : '⚠️ Incorrect password';
+            else if (error.code === 'auth/invalid-email') msg = isAr ? '⚠️ البريد غير صحيح' : '⚠️ Invalid email';
             errorEl.textContent = msg;
             errorEl.classList.add('show');
         })
         .finally(() => {
             loginBtn.disabled = false;
-            loginBtn.innerHTML = 'دخول 🚀';
+            loginBtn.innerHTML = isAr ? 'دخول 🚀' : 'Login 🚀';
         });
 }
 
@@ -1000,11 +962,12 @@ function handleGoogleLogin() {
         })
         .catch((error) => {
             console.error('Google error:', error);
-            showNotification('⚠️ فشل تسجيل الدخول بـ Google', 'error');
+            showNotification(currentLang === 'ar' ? '⚠️ فشل تسجيل الدخول بـ Google' : '⚠️ Google login failed', 'error');
         });
 }
 
 function handleRegister() {
+    const isAr = currentLang === 'ar';
     const name = document.getElementById('registerName').value.trim();
     const phone = document.getElementById('registerPhone').value.trim();
     const email = document.getElementById('registerEmail').value.trim();
@@ -1015,44 +978,45 @@ function handleRegister() {
     errorEl.classList.remove('show');
     successEl.classList.remove('show');
     if (!name || !phone || !email || !password) {
-        errorEl.textContent = '⚠️ يرجى ملء جميع الحقول';
+        errorEl.textContent = isAr ? '⚠️ يرجى ملء جميع الحقول' : '⚠️ Please fill all fields';
         errorEl.classList.add('show');
         return;
     }
     if (password.length < 6) {
-        errorEl.textContent = '⚠️ كلمة المرور 6 أحرف على الأقل';
+        errorEl.textContent = isAr ? '⚠️ كلمة المرور 6 أحرف على الأقل' : '⚠️ Password must be 6+ characters';
         errorEl.classList.add('show');
         return;
     }
     btn.disabled = true;
-    btn.innerHTML = 'جاري إنشاء الحساب... ⏳';
+    btn.innerHTML = isAr ? 'جاري إنشاء الحساب... ⏳' : 'Creating account... ⏳';
     auth.createUserWithEmailAndPassword(email, password)
         .then((cred) => {
             const user = cred.user;
             user.updateProfile({ displayName: name }).catch(() => {});
             const profile = { name, phone };
             localStorage.setItem('userProfile_' + user.uid, JSON.stringify(profile));
-            successEl.textContent = '✅ تم إنشاء الحساب بنجاح!';
+            successEl.textContent = isAr ? '✅ تم إنشاء الحساب بنجاح!' : '✅ Account created successfully!';
             successEl.classList.add('show');
             setTimeout(() => closeRegister(), 1200);
         })
         .catch((error) => {
-            let msg = '⚠️ حدث خطأ أثناء إنشاء الحساب';
-            if (error.code === 'auth/email-already-in-use') msg = '⚠️ هذا البريد مستخدم بالفعل';
-            else if (error.code === 'auth/invalid-email') msg = '⚠️ البريد غير صحيح';
-            else if (error.code === 'auth/weak-password') msg = '⚠️ كلمة المرور ضعيفة';
+            let msg = isAr ? '⚠️ حدث خطأ أثناء إنشاء الحساب' : '⚠️ Error creating account';
+            if (error.code === 'auth/email-already-in-use') msg = isAr ? '⚠️ هذا البريد مستخدم بالفعل' : '⚠️ Email already in use';
+            else if (error.code === 'auth/invalid-email') msg = isAr ? '⚠️ البريد غير صحيح' : '⚠️ Invalid email';
+            else if (error.code === 'auth/weak-password') msg = isAr ? '⚠️ كلمة المرور ضعيفة' : '⚠️ Weak password';
             errorEl.textContent = msg;
             errorEl.classList.add('show');
         })
         .finally(() => {
             btn.disabled = false;
-            btn.innerHTML = 'إنشاء حساب ✨';
+            btn.innerHTML = isAr ? 'إنشاء حساب ✨' : 'Create Account ✨';
         });
 }
 
 function handleLogout() {
-    if (confirm('هل تريد تسجيل الخروج؟')) {
-        auth.signOut().then(() => showNotification('👋 تم تسجيل الخروج'));
+    const isAr = currentLang === 'ar';
+    if (confirm(isAr ? 'هل تريد تسجيل الخروج؟' : 'Do you want to logout?')) {
+        auth.signOut().then(() => showNotification(isAr ? '👋 تم تسجيل الخروج' : '👋 Logged out'));
     }
 }
 
@@ -1064,7 +1028,7 @@ auth.onAuthStateChanged((user) => {
     const accountBtn = document.getElementById('accountBtn');
     if (user) {
         currentUser = user;
-        if (dropdownEmail) dropdownEmail.textContent = user.email || user.displayName || 'مستخدم';
+        if (dropdownEmail) dropdownEmail.textContent = user.email || user.displayName || 'User';
         if (logoutBtn) logoutBtn.style.display = 'flex';
         if (headerLoginBtn) headerLoginBtn.style.display = 'none';
         if (accountBtn) accountBtn.style.display = 'flex';
@@ -1074,7 +1038,7 @@ auth.onAuthStateChanged((user) => {
         if (!profile.name || !profile.phone) setTimeout(() => openProfileModal(user), 500);
     } else {
         currentUser = null;
-        if (dropdownEmail) dropdownEmail.textContent = 'زائر';
+        if (dropdownEmail) dropdownEmail.textContent = currentLang === 'ar' ? 'زائر' : 'Guest';
         if (logoutBtn) logoutBtn.style.display = 'none';
         if (headerLoginBtn) headerLoginBtn.style.display = 'flex';
         if (accountBtn) accountBtn.style.display = 'none';
@@ -1097,27 +1061,29 @@ function closeProfileModal() {
     document.body.style.overflow = '';
 }
 function saveUserProfile() {
+    const isAr = currentLang === 'ar';
     const user = auth.currentUser;
-    if (!user) { showNotification('⚠️ يرجى تسجيل الدخول أولاً', 'error'); return; }
+    if (!user) { showNotification(isAr ? '⚠️ يرجى تسجيل الدخول أولاً' : '⚠️ Please login first', 'error'); return; }
     const name = document.getElementById('profileName').value.trim();
     const phone = document.getElementById('profilePhone').value.trim();
     if (!name || !phone) {
-        showNotification('⚠️ يرجى ملء جميع الحقول', 'error');
+        showNotification(isAr ? '⚠️ يرجى ملء جميع الحقول' : '⚠️ Please fill all fields', 'error');
         return;
     }
     const profile = { name, phone };
     localStorage.setItem('userProfile_' + user.uid, JSON.stringify(profile));
     document.getElementById('clientName').value = name;
     document.getElementById('clientPhone').value = phone;
-    showNotification('✅ تم حفظ بياناتك بنجاح!', 'success');
+    showNotification(isAr ? '✅ تم حفظ بياناتك بنجاح!' : '✅ Data saved successfully!', 'success');
     closeProfileModal();
 }
 
 // ===== الموقع =====
 function getLocation() {
-    if (!navigator.geolocation) { alert("المتصفح لا يدعم تحديد الموقع."); return; }
+    const isAr = currentLang === 'ar';
+    if (!navigator.geolocation) { alert(isAr ? "المتصفح لا يدعم تحديد الموقع." : "Browser doesn't support geolocation."); return; }
     const input = document.getElementById('clientLocation');
-    input.value = '⏳ جاري جلب الموقع...';
+    input.value = isAr ? '⏳ جاري جلب الموقع...' : '⏳ Fetching location...';
     navigator.geolocation.getCurrentPosition(
         pos => {
             const lat = pos.coords.latitude, lng = pos.coords.longitude;
@@ -1125,35 +1091,36 @@ function getLocation() {
                 .then(r => r.json())
                 .then(data => {
                     input.value = data.display_name || `${lat}, ${lng}`;
-                    showNotification('✅ تم تحديد الموقع!', 'success');
+                    showNotification(isAr ? '✅ تم تحديد الموقع!' : '✅ Location detected!', 'success');
                 })
                 .catch(() => {
                     input.value = `${lat}, ${lng}`;
-                    showNotification('✅ تم تحديد الموقع (إحداثيات)');
+                    showNotification(isAr ? '✅ تم تحديد الموقع (إحداثيات)' : '✅ Location detected (coordinates)');
                 });
         },
-        () => { input.value = ''; alert('⚠️ فشل جلب الموقع. اكتبه يدوياً.'); },
+        () => { input.value = ''; alert(isAr ? '⚠️ فشل جلب الموقع. اكتبه يدوياً.' : '⚠️ Failed to get location. Type it manually.'); },
         { enableHighAccuracy: true, timeout: 8000 }
     );
 }
 function openMapPicker() {
     window.open('https://www.google.com/maps', '_blank');
-    showNotification('🗺️ اختر موقعك على الخريطة ثم الصق العنوان');
+    showNotification(currentLang === 'ar' ? '🗺️ اختر موقعك على الخريطة ثم الصق العنوان' : '🗺️ Pick your location on the map and paste the address');
     document.getElementById('clientLocation').focus();
 }
 
 // ===== الدفع =====
 function checkout() {
-    if (cart.length === 0) { showNotification('⚠️ عربتك فارغة!', 'error'); return; }
+    const isAr = currentLang === 'ar';
+    if (cart.length === 0) { showNotification(isAr ? '⚠️ عربتك فارغة!' : '⚠️ Your cart is empty!', 'error'); return; }
     if (!currentUser) {
         showLogin();
-        showNotification('🔐 يرجى تسجيل الدخول أولاً', 'error');
+        showNotification(isAr ? '🔐 يرجى تسجيل الدخول أولاً' : '🔐 Please login first', 'error');
         return;
     }
     const profile = JSON.parse(localStorage.getItem('userProfile_' + currentUser.uid)) || {};
     if (!profile.name || !profile.phone) {
         openProfileModal(currentUser);
-        showNotification('⚠️ يرجى إكمال بياناتك أولاً', 'error');
+        showNotification(isAr ? '⚠️ يرجى إكمال بياناتك أولاً' : '⚠️ Please complete your profile', 'error');
         return;
     }
     document.getElementById('clientName').value = profile.name;
@@ -1170,13 +1137,14 @@ function closeCheckoutModal() {
 
 // ===== إرسال الطلب إلى Formcarry =====
 function sendOrderToFormcarry() {
+    const isAr = currentLang === 'ar';
     const name = document.getElementById('clientName').value.trim();
     const email = document.getElementById('clientEmail').value.trim();
     const phone = document.getElementById('clientPhone').value.trim();
     const location = document.getElementById('clientLocation').value.trim();
 
     if (!name || !phone || !location) {
-        alert('⚠️ برجاء إدخال الاسم، رقم الهاتف، والموقع!');
+        alert(isAr ? '⚠️ برجاء إدخال الاسم، رقم الهاتف، والموقع!' : '⚠️ Please enter name, phone, and location!');
         return;
     }
 
@@ -1185,12 +1153,13 @@ function sendOrderToFormcarry() {
     cart.forEach((item, i) => {
         const itemTotal = item.price * item.quantity;
         total += itemTotal;
-        orderDetails += `${i + 1}. ${item.name} | ك: ${item.quantity} | ${itemTotal} ج.م\n`;
+        const pName = isAr ? item.name : (item.name_en || item.name);
+        orderDetails += `${i + 1}. ${pName} | Q: ${item.quantity} | ${itemTotal} ${isAr ? 'ج.م' : 'EGP'}\n`;
     });
 
     const submitBtn = document.getElementById('submitOrderBtn');
     submitBtn.disabled = true;
-    submitBtn.textContent = '⏳ جاري الإرسال...';
+    submitBtn.textContent = isAr ? '⏳ جاري الإرسال...' : '⏳ Sending...';
 
     const payload = {
         fullName: name,
@@ -1198,7 +1167,7 @@ function sendOrderToFormcarry() {
         phone: phone,
         address: location,
         orderDetails: orderDetails,
-        orderTotal: total + ' ج.م'
+        orderTotal: total + (isAr ? ' ج.م' : ' EGP')
     };
 
     fetch('https://formcarry.com/s/pG_NmCXbIWW', {
@@ -1208,30 +1177,32 @@ function sendOrderToFormcarry() {
     })
     .then(response => {
         submitBtn.disabled = false;
-        submitBtn.textContent = 'تأكيد وإرسال 💬';
+        submitBtn.textContent = isAr ? 'تأكيد وإرسال 💬' : 'Confirm & Send 💬';
         if (response.ok) {
             cart = [];
             localStorage.setItem('cart', JSON.stringify(cart));
             updateCartIconCount();
             renderCart();
             closeCheckoutModal();
-            showNotification('✅ تم إرسال طلبك بنجاح! سنتواصل معك قريباً.', 'success');
+            showNotification(isAr ? '✅ تم إرسال طلبك بنجاح! سنتواصل معك قريباً.' : '✅ Order sent successfully! We will contact you soon.', 'success');
         } else {
-            return response.json().then(data => { throw new Error(data.message || 'فشل الإرسال'); });
+            return response.json().then(data => { throw new Error(data.message || 'Failed'); });
         }
     })
     .catch(error => {
         submitBtn.disabled = false;
-        submitBtn.textContent = 'تأكيد وإرسال 💬';
-        console.error('خطأ:', error);
-        showNotification('⚠️ حدث خطأ أثناء إرسال الطلب. حاول مرة أخرى.', 'error');
+        submitBtn.textContent = isAr ? 'تأكيد وإرسال 💬' : 'Confirm & Send 💬';
+        console.error('Error:', error);
+        showNotification(isAr ? '⚠️ حدث خطأ أثناء إرسال الطلب. حاول مرة أخرى.' : '⚠️ Error sending order. Try again.', 'error');
     });
 }
 
 // ===== التهيئة =====
 document.addEventListener('DOMContentLoaded', function() {
+    applyLanguage(); // تطبيق اللغة عند فتح الموقع
     showAllProducts();
     updateCartIconCount();
+    updateSlider();
     window.addEventListener('scroll', () => {
         const btn = document.getElementById('backToTop');
         if (window.scrollY > 400) btn.classList.add('show');
